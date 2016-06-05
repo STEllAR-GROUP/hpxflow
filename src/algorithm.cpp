@@ -71,10 +71,11 @@ namespace hpx
 
 		// Maps each single elements of array as word count
 		template<typename T, typename X>
-		std::vector<std::map<std::string, int>> mp_arr_tuple(T &t, X &x) {
+		std::vector<std::map<std::string, int>> mp_arr_map(T &t, X &x) {
 			std::vector<std::map<std::string, int>> result;
+			std::map<std::string, int> a;
 			for(int i=0; i < (sizeof(t)/sizeof(*t)); i++){
-				auto a = std::make_tuple(t[i], 1);
+				a(t[i], 1);
 				result.push_back(a);
 			}
 			return result;
@@ -87,13 +88,20 @@ namespace hpx
 			}
 		}
 
+		// Add's all values in a key-value pair
+		template<typename Y>
+		long double const& add_values(Y &y) {
+			long double sum = 0;
+			std::map<std::string, int>::iterator it;
+			for(int i = 0; i < y.size(); i++){
+				for (auto it=y[i].begin(); it!=y[i].end(); ++it) {
+					sum = sum + it->second;
+				}
+			}
+		}
+
 	}
 
 }
 
 #endif
-
-
-int main(){
-
-}
