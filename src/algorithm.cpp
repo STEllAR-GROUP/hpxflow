@@ -24,6 +24,10 @@
 #include <algorithm>
 #include <iterator>
 
+
+// HPX header's
+#include <hpx/parallel/algorithms/for_each.hpp>
+
 using namespace std;
 
 namespace hpx
@@ -114,12 +118,15 @@ namespace hpx
 
 			    List<kmean_collection> allClusters = new List<kmean_collection>();
 			    List<List<kmean_point>> allGroups = ListUtility.SplitList<kmean_point>(kpoints, clusterCount);
-			    foreach (List<kmean_point> group in allGroups)
-			    {
-			        kmean_collection cluster = new kmean_collection();
-			        cluster.AddRange(group);
-			        allClusters.Add(cluster);
-			    }
+
+			    hpx::parallel::for_each(
+				    hpx::parallel::par,
+				    std::begin(allGroups), std::end(allGroups),
+				    [&](kmean_point group) {
+				   		kmean_collection cluster = new kmean_collection();
+			        	cluster.AddRange(group);
+			        	allClusters.Add(cluster);
+				});
 
 			    //start k-means clustering
 			    int movements = 1;
@@ -127,9 +134,11 @@ namespace hpx
 			    {
 			        movements = 0;
 
-			        foreach (kmean_collection cluster in allClusters)
-			        {
-			            for (int pointIndex = 0; pointIndex < cluster.Count; pointIndex++)
+		        hpx::parallel::for_each(
+			    	hpx::parallel::par,
+			    	std::begin(allClusters), std::end(allClusters),
+			    	[&](kmean_collection cluster) {
+			   			for (int pointIndex = 0; pointIndex < cluster.Count; pointIndex++)
 			            {
 			                kmean_point point = cluster[pointIndex];
 
@@ -144,7 +153,8 @@ namespace hpx
 			                    }
 			                }
 			            }
-			        }
+				});
+
 			    }
 
 			    return allClusters;
@@ -200,24 +210,29 @@ namespace hpx
 				            // add P to cluster c
 				            clusters[c].push_back(keypoints->at(i));
 				            //for each point P' in neighborPts
-				            for(int j = 0; j < neighborPts.size(); j++)
-				            {
-				                //if P' is not visited
-				                if(!visited[neighborPts[j]])
-				                {
-				                    //Mark P' as visited
-				                    visited[neighborPts[j]] = true;
-				                    neighborPts_ = regionQuery(keypoints,&keypoints->at(neighborPts[j]),eps);
-				                    if(neighborPts_.size() >= minPts)
-				                    {
-				                        neighborPts.insert(neighborPts.end(),neighborPts_.begin(),neighborPts_.end());
-				                    }
-				                }
-				                // if P' is not yet a member of any cluster
-				                // add P' to cluster c
-				                if(!clustered[neighborPts[j]])
-				                    clusters[c].push_back(keypoints->at(neighborPts[j]));
-				            }
+
+							hpx::parallel::for_each(
+						        hpx::parallel::par,
+						        std::begin(neighborPts), std::end(neighborPts),
+						        [&](int element) {
+						        	/////////
+						        					                //if P' is not visited
+					                if(!visited[element])
+					                {
+					                    //Mark P' as visited
+					                    visited[element] = true;
+					                    neighborPts_ = regionQuery(keypoints,&keypoints->at(element),eps);
+					                    if(neighborPts_.size() >= minPts)
+					                    {
+					                        neighborPts.insert(neighborPts.end(),neighborPts_.begin(),neighborPts_.end());
+					                    }
+					                }
+					                // if P' is not yet a member of any cluster
+					                // add P' to cluster c
+					                if(!clustered[element])
+					                    clusters[c].push_back(keypoints->at(element));
+							});
+
 				        }
 
 				    }
