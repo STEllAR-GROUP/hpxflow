@@ -27,20 +27,28 @@ protected:
 
 	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output)
 		{ if (output == NULL || output == this) return false;
-		  for (int i=0; i < (int)theOutput.size(); i++) {
-			if(theOutput[i] == output) return true;
-		  }
+		  hpx::parallel::for_each(
+						        hpx::parallel::par,
+						        std::begin(theOutput), std::end(theOutput),
+						        [&](HpxFlowPipelineSegmentBase * element) {
+						        	if(theOutput[i] == output) return true;
+		  });
 		  theOutput.push_back(output);
 		  return true;	//The output handler has been added.
 		};
 
 	virtual bool removeOutputHandler(HpxFlowPipelineSegmentBase *output)
-		{ for (int i=0; i < (int)theOutput.size(); i++) {
-			if (theOutput[i] == output) {
-				theOutput.erase((theOutput.begin() + i));
-				return true;
-			}
-		  }
+		{
+		  hpx::parallel::for_each(
+						        hpx::parallel::par,
+						        std::begin(theOutput), std::end(theOutput),
+						        [&](HpxFlowPipelineSegmentBase * element) {
+						        	if (element == output) {
+										theOutput.erase(element);
+										return true;
+									}
+		  });
+
 		  return true;
 		};
 
