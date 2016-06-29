@@ -187,11 +187,9 @@ namespace hpx
 				    visited.push_back(false);
 				}
 
-				//C =0;
 				c = 0;
 				clusters.push_back(vector<KeyPoint>()); //will stay empty?
 
-				//for each unvisted point P in dataset keypoints
 				for(int i = 0; i < noKeys; i++)
 				{
 				    if(!visited[i])
@@ -206,20 +204,17 @@ namespace hpx
 				        {
 				            clusters.push_back(vector<KeyPoint>());
 				            c++;
-				            //expand cluster
-				            // add P to cluster c
+
 				            clusters[c].push_back(keypoints->at(i));
-				            //for each point P' in neighborPts
 
 							hpx::parallel::for_each(
 						        hpx::parallel::par,
 						        std::begin(neighborPts), std::end(neighborPts),
 						        [&](int element) {
 						        	/////////
-						        					                //if P' is not visited
 					                if(!visited[element])
 					                {
-					                    //Mark P' as visited
+
 					                    visited[element] = true;
 					                    neighborPts_ = regionQuery(keypoints,&keypoints->at(element),eps);
 					                    if(neighborPts_.size() >= minPts)
@@ -227,8 +222,7 @@ namespace hpx
 					                        neighborPts.insert(neighborPts.end(),neighborPts_.begin(),neighborPts_.end());
 					                    }
 					                }
-					                // if P' is not yet a member of any cluster
-					                // add P' to cluster c
+
 					                if(!clustered[element])
 					                    clusters[c].push_back(keypoints->at(element));
 							});
