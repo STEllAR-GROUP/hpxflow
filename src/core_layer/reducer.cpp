@@ -29,12 +29,19 @@ namespace hpx {
 		    } 
 		}; 
 
-		template< typename F > 
-		void reducer( F f, auto values ) 
-		{ 
-			// Working
-			hpx::parallel::sort_by_key();
-		} 
+		template <typename T>
+		hpxflow &reduce(T fn) {
+
+			sort(buffer_intermediate.begin(), buffer_intermediate.end(), [](tuple<int, int, int, int> &lhs, tuple<int, int, int, int> &rhs ){ return get<1>(lhs) < get<1>(rhs);});
+			// for (auto it = std::begin(buffer_intermediate); it!=std::end(buffer_intermediate); ++it){
+// 					for(auto &x: buffer_intermediate[it])
+// 						fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x));
+// 			}
+
+			for(auto &x: buffer_intermediate)
+				fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x));
+		}	
+
 	}
 
 }

@@ -15,10 +15,8 @@ namespace hpx {
 		class word_reduce_tuple { 
 		}; 
 
-		template< typename F > 
-		void reducer( F f, auto values ) 
-		{ 
-		} 
+		template <typename T>
+		hpxflow &reduce(T fn) {} 
 	}
 
 }
