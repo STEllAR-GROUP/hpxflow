@@ -105,31 +105,31 @@ using namespace std;
                 return got->second;
             }
 
-   //          template <typename F>
-   //          void window(int index, F fn){
-   //          	buffer_window = buffer_intermediate;
-   //          	// unordered_map
-   //          	// std::pair<,double> myshopping ("baking powder",0.3);
-   //          	for(int i = 0; i  < buffer_window.size(); i++) {
-   //          		// hashmap.insert(std::get<0>(buffer_window[0]), buffer_window[i]);
-   //          		hashmap.insert(std::make_pair<int, vector<tuple< int, int, int, int>>>(std::get<0>(buffer_window[0]), buffer_window[i]));
-   //          	}
-   //          	// hashmap.insert(std::get<index>(buffer_window), buffer_window);
-   //          	// return *this;
-			// }
+            template <typename F>
+            void window(int index, F fn){
+            	buffer_window = buffer_intermediate;
+            	// unordered_map
+            	// std::pair<,double> myshopping ("baking powder",0.3);
+            	for(int i = 0; i  < buffer_window.size(); i++) {
+            		// hashmap.insert(std::get<0>(buffer_window[0]), buffer_window[i]);
+            		hashmap.insert(std::make_pair<int, vector<tuple< int, int, int, int>>>(std::get<0>(buffer_window[0]), buffer_window[i]));
+            	}
+            	// hashmap.insert(std::get<index>(buffer_window), buffer_window);
+            	// return *this;
+			}
 
-			// template <typename F> //  Here Fn is watermark function
-			// bool trigger(F fn) {
+			template <typename F> //  Here Fn is watermark function
+			bool trigger(F fn) {
 
-			// for (auto it = std::begin(hashmap); it!=std::end(hashmap); ++it){
-			// 	for (auto& x: hashmap[it]){
-			// 		if(fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x) )){
-			// 			return true;
-			// 		}
-			// 	}
-			// }
-			// 	return false;
-			// }
+			for (auto it = std::begin(hashmap); it!=std::end(hashmap); ++it){
+				for (auto& x: hashmap[it]){
+					if(fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x) )){
+						return true;
+					}
+				}
+			}
+				return false;
+			}
 
 			template <typename V, typename X>
 			hpxflow &apply(V fn, X xn){
