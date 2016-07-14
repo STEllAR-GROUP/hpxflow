@@ -5,8 +5,8 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef HPX_FLOW_COUNT_DOWN_LATCH_H
-#define HPX_FLOW_COUNT_DOWN_LATCH_H
+#ifndef HPXFLOW_COUNTDOWNLATCH_H
+#define HPXFLOWCOUNTDOWNLATCH_H
 
 #include <boost/thread.hpp>
 #include <boost/chrono.hpp>

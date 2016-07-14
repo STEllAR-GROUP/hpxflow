@@ -10,13 +10,13 @@
 
 #include <vector>
 
-#include "PipelineSegment.h"
+#include "HpxFlowPipelineSegment.h"
 
 namespace HpxFlowPipelineProcessing
 {
 
 template<class OutputPipeType>
-class HpxFlowPipelineSegment : public HpxFlowPipelineProcessing::PipelineSegment<OutputPipeType>
+class HpxFlowPipeSegment : public HpxFlowPipelineProcessing::HpxFlowPipelineSegment<OutputPipeType>
 {
 
 protected:
@@ -27,27 +27,29 @@ protected:
 
 	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output)
 		{ if (output == NULL || output == this) return false;
-		  hpx::parallel::for_each(
-						        hpx::parallel::par,
-						        std::begin(theOutput), std::end(theOutput),
-						        [&](HpxFlowPipelineSegmentBase * element) {
-						        	if(theOutput[i] == output) return true;
-		  });
+		  // hpx::parallel::for_each(
+				// 		        hpx::parallel::par,
+				// 		        std::begin(theOutput), std::end(theOutput),
+				// 		        [&](HpxFlowPipelineSegmentBase * element) {
+				// 		        	if(theOutput[i] == output) return true;
+		  // });
+
+			for (auto const &element : theOutput) {
+				if(element == output) return true;
+			}
 		  theOutput.push_back(output);
 		  return true;	//The output handler has been added.
 		};
 
 	virtual bool removeOutputHandler(HpxFlowPipelineSegmentBase *output)
 		{
-		  hpx::parallel::for_each(
-						        hpx::parallel::par,
-						        std::begin(theOutput), std::end(theOutput),
-						        [&](HpxFlowPipelineSegmentBase * element) {
-						        	if (element == output) {
-										theOutput.erase(element);
-										return true;
-									}
-		  });
+
+		  for (auto const &element : theOutput) {
+				if (element == output) {
+						theOutput.erase(element);
+						return true;
+				}
+		  }
 
 		  return true;
 		};
@@ -58,12 +60,12 @@ protected:
 		};
 
 public:
-	PipelineSegment() {};
+	HpxFlowPipeSegment() {};
 
-	virtual PipelineSegment<OutputPipeType> *connectTo(OutputPipeType *output)
+	virtual HpxFlowPipeSegment<OutputPipeType> *connectTo(OutputPipeType *output)
 		{ addOutputHandler(output); return this; };
 
-	virtual PipelineSegment<OutputPipeType> *disconnectFrom(OutputPipeType *output)
+	virtual HpxFlowPipeSegment<OutputPipeType> *disconnectFrom(OutputPipeType *output)
 		{ removeOutputHandler(output); return this; };
 
 	virtual void disconnectFromAll()
@@ -81,11 +83,12 @@ public:
 	virtual void operator-=(OutputPipeType &output)
 		{ removeOutputHandler(&output); };
 
-	virtual ~PipelineSegment() {};
+	virtual ~HpxFlowPipeSegment() {};
 };
 
-template<class OutputPipeType>
-const HpxFlowPipelineSegmentBase* const PipelineSegment<OutputPipeType>::OutputPipeType_Substitutable = (const OutputPipeType*) 0;
+// template<class OutputPipeType>
+// const HpxFlowPipelineSegmentBase*;
+// const PipelineSegment<OutputPipeType>::OutputPipeType_Substitutable = (const OutputPipeType*) 0;
 
 
 }

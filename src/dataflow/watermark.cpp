@@ -8,18 +8,21 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <hpxflow_watermark.h>
+// #include <hpxflow_watermark.h>
 
 using namespace std;
 
+class watermark{
+	watermark(){
 
-watermark::watermark(){
+	}
 
-}
-watermark::~watermark(){
+	~watermark(){
 
-}
+	}
 
-template <typename F>
-int watermark::watermarkSize(F fn){
-}
+	template <typename F>
+	int watermarkSize(F fn){
+	}
+
+};

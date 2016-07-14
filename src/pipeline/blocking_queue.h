@@ -5,8 +5,8 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef HPX_FLOW_BLOCKING_QUEUE_H
-#define HPX_FLOW_BLOCKING_QUEUE_H
+#ifndef HPXFLOWBLOCKINGQUEUE_H
+#define HPXFLOWBLOCKINGQUEUE_H
 
 #include <mutex>
 #include <iostream>

@@ -8,7 +8,7 @@
 
 #include <iostream> 
 #include <tuple>
-#include <hpx/parallel/algorithms/for_each.hpp>
+// #include <hpx/parallel/algorithms/for_each.hpp>
 
 namespace hpx {
 	namespace flow {
@@ -22,21 +22,27 @@ namespace hpx {
 
 		class word_count_tuple { 
 		  public: 
-		    std::tuple<auto, auto> operator()(auto value ) 
+		  	template <typename T, typename V, typename L>
+		    std::tuple<T, V> operator()(L value ) 
 		    { 
 		      std::make_tuple(value, "1");
 		    } 
 		}; 
 
-		template< typename F > 
-		void map( F f, auto values ) 
+		template< typename F, typename K > 
+		void map( F f, K values ) 
 		{ 
-			hpx::parallel::for_each(
-			hpx::parallel::par,
-			std::begin(values), std::end(values),
-			[&](auto value) {
+			// hpx::parallel::for_each(
+			// hpx::parallel::par,
+			// std::begin(values), std::end(values),
+			// [&](auto value) {
+			// 	f(value);
+			// });	
+
+
+			for (auto const &value : values) {
 				f(value);
-			});	
+			}
 		} 
 	}
 

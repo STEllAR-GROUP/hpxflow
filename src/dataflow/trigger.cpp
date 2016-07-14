@@ -8,27 +8,37 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <hpxflow_trigger.h>
+#include <tuple>
+// #include <hpxflow_trigger.h>
 
 using namespace std;
 
-
-trigger::trigger(){
+class trigger{
 	
-}
-trigger::~trigger(){
+	std::unordered_map<int, std::vector<std::tuple< int, int, int, int>> > hashmap;
 
-}
-
-template <typename F> //  Here Fn is watermark function
-bool trigger(F fn) {
-
-for (auto it = std::begin(hashmap); it!=std::end(hashmap); ++it){
-	for (auto& x: hashmap[it]){
-		if(fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x) )){
-			return true;
-		}
+	trigger(){
+	
 	}
-}
-	return false;
-}
+	
+	~trigger(){
+
+	}
+
+	template <typename F> //  Here Fn is watermark function
+	bool run_trigger(F fn) {
+
+	for (auto it = std::begin(hashmap); it!=std::end(hashmap); ++it){
+
+		// Make it wright
+
+		// for (auto& x: hashmap[it]){
+		// 	if(fn(std::get<0>(x), std::get<1>(x), std::get<2>(x), std::get<3>(x) )){
+		// 		return true;
+		// 	}
+		// }
+	}
+		return false;
+	}
+};
+
