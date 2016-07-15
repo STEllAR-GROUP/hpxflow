@@ -1,29 +1,27 @@
-////////////////////////////////////////////////////////////////////////////////
-//  Copyright (c) 2016 Aalekh Nigam
-//
-//  Distributed under the Boost Software License, Version 1.0. (See accompanying
-//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-////////////////////////////////////////////////////////////////////////////////
-#include <iostream> 
-#include <tuple>
+#ifndef MAP_H
+#define MAP_H
+
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
+#include <vector>
+#include <utility>
+#include <map>
+#include "../algorithm/fileoperations.h"
 
 
-namespace hpx {
-	namespace flow {
-		class count { 
-		  public: 
-		    int operator()(int ) 
-		    { 
-		    } 
-		}; 
+// template <typename T>
+// hpxflow &hpxflow::mapper(T t){
+//     for (auto const &value : veco) {
+//         buffer_pair.push_back(make_pair(t(value).first, t(value).second));
+//         // auto v = t(value);
+//         // cout << "First: " << v.first << " Second: " << v.second << endl;
+//     }
+//     buffer_pair_intermediate = buffer_pair;
+//     return *this;
+//     // return std::make_pair (10,20)
+// }
 
-		class word_count_tuple { 
-		  public: 
-		    std::tuple<auto, auto> operator()(auto ) {} 
-		}; 
-
-		template< typename F > 
-		void map( F , auto ) {} 
-	}
-
-}
+#endif

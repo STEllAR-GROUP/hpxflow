@@ -47,6 +47,13 @@ namespace hpx
                 return *this;
             }
 
+
+        //     for (auto const &value : values) {
+        //         f(value);
+        //     }
+        // } 
+
+
         };
 
     }
