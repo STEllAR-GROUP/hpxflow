@@ -2,7 +2,7 @@
 #define EXAMPLE_H
 
 #include "../src/core_layer/reduce.h"
-#include "../src/core_layer/map.h"
+#include "../src/core_layer/mapper.h"
 #include "../src/algorithm/filter.h"
 #include "../src/algorithm/fileoperations.h"
 
