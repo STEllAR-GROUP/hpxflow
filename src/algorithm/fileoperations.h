@@ -29,15 +29,15 @@ class hpxflow{
 
 	    map<string, string> inter_map;
 
-	hpxflow(string filename) { //This constructor simply reades file input
-        ifstream inf(filename);
+	    hpxflow(string filename) { //This constructor simply reades file input
+            ifstream inf(filename);
         
         // Although and expensive operation, I appened buffer char by char to have new line or tab space character included.
-        while (inf.get(c))
-            buffer += c;
+            while (inf.get(c))
+                buffer += c;
 
-        toVector();
-    }
+            toVector();
+        }
 
     void toVector(){
         istringstream iss(buffer);

@@ -104,7 +104,7 @@ namespace hpx{
 
                 CountDownLatch(const CountDownLatch& cpy)
                 {
-                     boost::unique_lock<boost::mutex>::unique_lock(const_cast<boost::mutex&>(cpy.m_cdlMutex));
+                    boost::unique_lock<boost::mutex>(const_cast<boost::mutex&>(cpy.m_cdlMutex));
                     m_cdlCount = cpy.m_cdlCount;
                 }
 
