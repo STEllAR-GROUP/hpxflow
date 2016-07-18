@@ -1,5 +1,5 @@
-#ifndef EXAMPLE_H
-#define EXAMPLE_H
+#ifndef HPXFLOW_H
+#define HPXFLOW_H
 
 #include "../src/core_layer/reduce.h"
 #include "../src/core_layer/mapper.h"

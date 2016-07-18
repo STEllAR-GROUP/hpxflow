@@ -1,4 +1,5 @@
-#include "example.h"
+#include "../src/hpxflow.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
