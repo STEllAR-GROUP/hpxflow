@@ -9,6 +9,7 @@
 #include <vector>
 #include <utility>
 #include <map>
+#include <cstring>
 
 using namespace std;
 
@@ -23,7 +24,6 @@ class hpxflow{
 	    // template<typename T>
 	    vector<string> veco;
 
-	    template <typename T, typename V>;
 	    vector<pair<string, string>> buffer_pair;
 	    vector<pair<string, string>> buffer_pair_intermediate;
 
@@ -53,7 +53,7 @@ class hpxflow{
 
 	hpxflow &character_operation(char character, char replace_with){
         string app;
-        for(int i = 0; i < strlen(buffer.c_str()); i++){
+        for(size_t i = 0; i < strlen(buffer.c_str()); i++){
             if(buffer[i] == character){
 
                 app = app + replace_with;
@@ -84,7 +84,7 @@ class hpxflow{
 
     template <typename F, typename... Args>
 	hpxflow &filter(int index, F fn, Args... args){
-	    for(int i = 0; i < buffer_pair_intermediate.size(); i++) {
+	    for(size_t i = 0; i < buffer_pair_intermediate.size(); i++) {
 	        if(index == 1){
 	            if(!fn(buffer_pair_intermediate[i].first, args...)){
 	                buffer_pair_intermediate.erase(buffer_pair_intermediate.begin() + i);
@@ -117,4 +117,4 @@ class hpxflow{
 
 };
 
-#endif;
+#endif
