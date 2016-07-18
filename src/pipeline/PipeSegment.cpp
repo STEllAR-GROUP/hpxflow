@@ -26,7 +26,7 @@ protected:
 	std::vector<HpxFlowPipelineSegmentBase *> theOutput;
 
 	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output)
-		{ if (output == NULL || output == this) return false;
+		{ if (!(output)|| output == this) return false;
 		  // hpx::parallel::for_each(
 				// 		        hpx::parallel::par,
 				// 		        std::begin(theOutput), std::end(theOutput),
@@ -44,9 +44,9 @@ protected:
 	virtual bool removeOutputHandler(HpxFlowPipelineSegmentBase *output)
 		{
 
-		  for (auto const &element : theOutput) {
+		  for (auto &element : theOutput) {
 				if (element == output) {
-						theOutput.erase(element);
+						//theOutput.erase(element);
 						return true;
 				}
 		  }

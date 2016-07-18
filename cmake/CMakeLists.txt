@@ -28,7 +28,7 @@ target_include_directories( hpxflow PUBLIC src/pipeline )
 ## dependencies ###############################################################
 ###############################################################################
 
-find_package(Boost 1.36.0 COMPONENTS filesystem system REQUIRED)
+find_package(Boost 1.58.0 COMPONENTS filesystem system REQUIRED)
 
 target_link_libraries(hpxflow PUBLIC
   ${Boost_LIBRARIES}
