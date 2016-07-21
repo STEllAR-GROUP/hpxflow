@@ -8,8 +8,6 @@ endif()
 # This project is C++ based.
 project(hpxflow CXX)
 
-# add our cmake path
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 
 if(HPX_ROOT)
     set(HPX_DIR "${HPX_ROOT}/lib/cmake/HPX")
@@ -56,10 +54,10 @@ link_directories(${HPX_LIBRARY_DIR})
 
 ### Including hpxflow target directory
 
-file( GLOB_RECURSE sources ../src/algorithm/*.cpp ../src/algorithm/*.h )         
-file( GLOB_RECURSE sources_t  ../src/core_layer/*.cpp ../src/core_layer/*.h )    
-file( GLOB_RECURSE sources_f  ../src/dataflow/*.cpp ../src/dataflow/*.h )        
-file( GLOB_RECURSE sources_s  ../src/pipeline/*.cpp ../src/pipeline/*.h )  
+file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )         
+file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )    
+file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )        
+file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )  
 
 add_library(libhpxflow ${sources} ${sources_t} ${sources_f} ${sources_s}) 
 
@@ -119,8 +117,6 @@ include_directories(${PROJECT_SOURCE_DIR})
 
 
 if(HPXFLOW_BUILD_EXAMPLES)
-    add_hpx_pseudo_target(examples)
-    include_directories(examples)
     add_subdirectory(examples)
 endif()
 
