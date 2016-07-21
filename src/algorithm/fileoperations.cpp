@@ -1,3 +1,4 @@
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -7,12 +8,12 @@
 #include <utility>
 #include <map>
 #include <cstring>
-#include <hpx/hpx.hpp>
+/*#include <hpx/hpx.hpp>
 #include <hpx/hpx_init.hpp>
 #include <hpx/include/parallel_algorithm.hpp>
 
 #include <boost/range/functions.hpp>
-
+*/
 #include "fileoperations.h"
 
 using namespace std;
@@ -39,7 +40,7 @@ void hpxflow::toVector(){
     // }
     // return *this;
 }
-
+/*
 hpxflow &hpxflow::character_operation(char character, char replace_with){
     using hpx::util::unwrapped;
     using hpx::lcos::local::dataflow;
@@ -64,7 +65,7 @@ hpxflow &hpxflow::character_operation(char character, char replace_with){
     buffer = app;
     return *this;
 }
-
+*/
 hpxflow &hpxflow::write_to_file(string filename){
     std::ofstream out(filename);
     out << buffer;
@@ -91,6 +92,7 @@ hpxflow &hpxflow::filter(int index, F fn, Args... args){
             }
         }
     }
+    return *this;
 }
 
 template <typename L>
@@ -110,6 +112,5 @@ hpxflow &hpxflow::mapper(T t){
     return *this;
     // return std::make_pair (10,20)
 }
-
 
 
