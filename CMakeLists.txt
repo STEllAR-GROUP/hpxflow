@@ -8,7 +8,6 @@ endif()
 # This project is C++ based.
 project(hpxflow CXX)
 
-
 if(HPX_ROOT)
     set(HPX_DIR "${HPX_ROOT}/lib/cmake/HPX")
 endif()
@@ -30,6 +29,7 @@ if(NOT (HPX_BUILD_TYPE STREQUAL CMAKE_BUILD_TYPE))
     message(FATAL_ERROR "Build types used for HPX and this library have to match")
 endif()
 
+
 # inherit varios setting from HPXConfig
 set(CMAKE_DEBUG_POSTFIX ${HPX_DEBUG_POSTFIX})
 
@@ -48,34 +48,25 @@ endif()
 
 
 list(APPEND CMAKE_MODULE_PATH "${HPX_PREFIX}/../cmake/")
-include_directories(${HPX_INCLUDE_DIR})
-#### HPX LINK DIRECTORY
-link_directories(${HPX_LIBRARY_DIR})
-
-### Including hpxflow target directory
 
 file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )         
 file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )    
 file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )        
 file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )  
 
-add_library(libhpxflow ${sources} ${sources_t} ${sources_f} ${sources_s}) 
 
-target_compile_options(libhpxflow PUBLIC -std=c++11 -Wall -Wfloat-conversion) 
+file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )         
+file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp  )    
+file( GLOB_RECURSE headers_f  ./src/dataflow/*.hpp  )        
+file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )  
 
-
-target_include_directories( libhpxflow PUBLIC src/algorithm )                    
-target_include_directories( libhpxflow PUBLIC src/core_layer )                   
-target_include_directories( libhpxflow PUBLIC src/dataflow )                     
-target_include_directories( libhpxflow PUBLIC src/pipeline )
+add_hpx_component(libhpxflow
+		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
+		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s}
+		)
 
 find_package(Boost 1.58.0 COMPONENTS filesystem system REQUIRED)
 
-target_link_libraries(libhpxflow PUBLIC                                          
-  ${Boost_LIBRARIES}
-  ${HPX_LIBRARY_DIR}                                                         
-)
-include_directories(${Boost_INCLUDE_DIRS})
 ########################################################################
 # configurations
 hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" OFF ADVANCED)
@@ -105,13 +96,6 @@ if(MSVC)
   hpx_add_compile_flag(-MP)         # Multiprocessor build
   hpx_add_compile_flag(-bigobj)     # Increase the maximum size of object file sections
 endif()
-
-
-#########################
-# Builds
-#
-
-# build cuda
 
 include_directories(${PROJECT_SOURCE_DIR})
 
