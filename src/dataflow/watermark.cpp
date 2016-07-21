@@ -21,8 +21,4 @@ class watermark{
 
 	}
 
-	template <typename F>
-	int watermarkSize(F fn){
-	}
-
 };

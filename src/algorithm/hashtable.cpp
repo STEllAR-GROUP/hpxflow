@@ -48,7 +48,7 @@ namespace hpx{
             }
 
             template <typename T>
-            bool remove_Item( T key ) {
+            void remove_Item( T key ) {
                 hashmap.erase(key);
             }
 
@@ -63,7 +63,7 @@ namespace hpx{
             // Returns the number of Items in the Hash Table.
             int getNumberOfItems()
             {
-
+                return 0;
             }
 
         };
