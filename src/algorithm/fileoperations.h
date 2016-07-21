@@ -27,24 +27,24 @@ class hpxflow{
 
         map<string, string> inter_map;
 
-        hpxflow(string filename) {}
+        hpxflow(string filename);
 
-        void toVector(){}
+        void toVector();
 
-        hpxflow &character_operation(char character, char replace_with){}
+        hpxflow &character_operation(char character, char replace_with);
 
-        hpxflow &write_to_file(string filename){}
+        hpxflow &write_to_file(string filename);
 
-        hpxflow &dump() {}
+        hpxflow &dump() ;
 
         template <typename F, typename... Args>
-        hpxflow &filter(int index, F fn, Args... args){}
+        hpxflow &filter(int index, F fn, Args... args);
 
         template <typename L>
-        hpxflow &reduce(L fn, int vl){}
+        hpxflow &reduce(L fn, int vl);
 
         template <typename T>
-        hpxflow &mapper(T t){}
+        hpxflow &mapper(T t);
 
 };
 
