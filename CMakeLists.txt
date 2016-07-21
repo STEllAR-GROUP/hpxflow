@@ -1,100 +1,138 @@
-cmake_minimum_required(VERSION 3.0)
-project(example_project)
+cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
 
-###############################################################################
-## file globbing ##############################################################
-###############################################################################
-
-# these instructions search the directory tree when cmake is
-# invoked and put all files that match the pattern in the variables 
-# `sources` and `data`
-file(GLOB_RECURSE sources      src/main/*.cpp src/main/*.h)
-file(GLOB_RECURSE sources_test src/test/*.cpp)
-file(GLOB_RECURSE data resources/*)
-# you can use set(sources src/main.cpp) etc if you don't want to
-# use globing to find files automatically
-
-###############################################################################
-## target definitions #########################################################
-###############################################################################
-
-# add the data to the target, so it becomes visible in some IDE
-add_executable(example ${sources} ${data})
-
-# just for example add some compiler flags
-target_compile_options(example PUBLIC -std=c++1y -Wall -Wfloat-conversion)
-
-# this lets me include files relative to the root src dir with a <> pair
-target_include_directories(example PUBLIC src/main)
-
-# this copies all resource files in the build directory
-# we need this, because we want to work with paths relative to the executable
-file(COPY ${data} DESTINATION resources)
-
-###############################################################################
-## dependencies ###############################################################
-###############################################################################
-
-# this defines the variables Boost_LIBRARIES that contain all library names
-# that we need to link to
-find_package(Boost 1.36.0 COMPONENTS filesystem system REQUIRED)
-
-target_link_libraries(example PUBLIC
-  ${Boost_LIBRARIES}
-  # here you can add any library dependencies
-)
-
-###############################################################################
-## testing ####################################################################
-###############################################################################
-
-# this is for our testing framework
-# we don't add REQUIRED because it's just for testing
-find_package(GTest)
-
-if(GTEST_FOUND)
-  add_executable(unit_tests ${sources_test} ${sources})
-
-  # we add this define to prevent collision with the main
-  # this might be better solved by not adding the source with the main to the
-  # testing target
-  target_compile_definitions(unit_tests PUBLIC UNIT_TESTS)
-
-  # this allows us to use our executable as a link library
-  # therefore we can inherit all compiler options and library dependencies
-  set_target_properties(example PROPERTIES ENABLE_EXPORTS on)
-
-  target_link_libraries(unit_tests PUBLIC
-    ${GTEST_BOTH_LIBRARIES}
-    example
-  )
-
-  target_include_directories(unit_tests PUBLIC
-    ${GTEST_INCLUDE_DIRS} # doesn't do anything on Linux
-  )
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING
+        "Configuration type (one of Debug, RelWithDebInfo, Release, MinSizeRel)")
 endif()
 
-###############################################################################
-## packaging ##################################################################
-###############################################################################
+# This project is C++ based.
+project(hpxflow CXX)
 
-# all install commands get the same destination. this allows us to use paths
-# relative to the executable.
-install(TARGETS example DESTINATION example_destination)
-# this is basically a repeat of the file copy instruction that copies the
-# resources in the build directory, but here we tell cmake that we want it
-# in the package
-install(DIRECTORY resources DESTINATION example_destination)
+# add our cmake path
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 
-# now comes everything we need, to create a package
-# there are a lot more variables you can set, and some
-# you need to set for some package types, but we want to
-# be minimal here
-set(CPACK_PACKAGE_NAME "MyExample")
-set(CPACK_PACKAGE_VERSION "1.0.0")
+if(HPX_ROOT)
+    set(HPX_DIR "${HPX_ROOT}/lib/cmake/HPX")
+endif()
+set (HPX_IGNORE_COMPILER_COMPATIBILITY  ON)
+#add -std=gnu++11 to the debug flags
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    if (CMAKE_COMPILER_IS_GNUCC)
+         SET(CMAKE_CXX_FLAGS_DEBUG "-ggdb -D_DEBUG -O0 -std=gnu++11" CACHE STRING)
+    endif()
+endif() 
 
-# we don't want to split our program up into several things
-set(CPACK_MONOLITHIC_INSTALL 1)
+########################################################################
+# Include hpx
+# Instruct cmake to find the HPX settings
+find_package(HPX REQUIRED)
 
-# This must be last
-include(CPack)
+if(NOT (HPX_BUILD_TYPE STREQUAL CMAKE_BUILD_TYPE))
+    message("HPX_BUILD_TYPE: " ${HPX_BUILD_TYPE} "CMAKE_BUILD_TYPE: " ${CMAKE_BUILD_TYPE})
+    message(FATAL_ERROR "Build types used for HPX and this library have to match")
+endif()
+
+# inherit varios setting from HPXConfig
+set(CMAKE_DEBUG_POSTFIX ${HPX_DEBUG_POSTFIX})
+
+# Adjust auxiliary build settings for HPX to work properly
+if(NOT MSVC)
+    set(HPX_RPATH
+        "${PROJECT_BINARY_DIR}/lib/hpx:${HPX_RPATH}:${CMAKE_INSTALL_PREFIX}/lib/hpx")
+else()
+    # enable solution folders for MSVC
+    set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+    if(HPX_NO_INSTALL)
+      set(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}/$(Configuration)" CACHE PATH
+          "Prefix prepended to install directories." FORCE)
+    endif()
+endif()
+
+
+list(APPEND CMAKE_MODULE_PATH "${HPX_PREFIX}/../cmake/")
+include_directories(${HPX_INCLUDE_DIR})
+#### HPX LINK DIRECTORY
+link_directories(${HPX_LIBRARY_DIR})
+
+### Including hpxflow target directory
+
+file( GLOB_RECURSE sources ../src/algorithm/*.cpp ../src/algorithm/*.h )         
+file( GLOB_RECURSE sources_t  ../src/core_layer/*.cpp ../src/core_layer/*.h )    
+file( GLOB_RECURSE sources_f  ../src/dataflow/*.cpp ../src/dataflow/*.h )        
+file( GLOB_RECURSE sources_s  ../src/pipeline/*.cpp ../src/pipeline/*.h )  
+
+add_library(libhpxflow ${sources} ${sources_t} ${sources_f} ${sources_s}) 
+
+target_compile_options(libhpxflow PUBLIC -std=c++11 -Wall -Wfloat-conversion) 
+
+
+target_include_directories( libhpxflow PUBLIC src/algorithm )                    
+target_include_directories( libhpxflow PUBLIC src/core_layer )                   
+target_include_directories( libhpxflow PUBLIC src/dataflow )                     
+target_include_directories( libhpxflow PUBLIC src/pipeline )
+
+find_package(Boost 1.58.0 COMPONENTS filesystem system REQUIRED)
+
+target_link_libraries(libhpxflow PUBLIC                                          
+  ${Boost_LIBRARIES}
+  ${HPX_LIBRARY_DIR}                                                         
+)
+include_directories(${Boost_INCLUDE_DIRS})
+########################################################################
+# configurations
+hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" OFF ADVANCED)
+hpx_option(HPXFLOW_BUILD_TESTS BOOL "Build HPX tests (default: OFF)" OFF ADVANCED)
+hpx_option(HPXFLOW_WITH_DOCUMENTATION BOOL "The HPX documentation toolchain is available (default OFF)." OFF)
+    
+#endif()
+
+if(MSVC)
+  hpx_add_compile_flag(-Ox CONFIGURATIONS Release LANGUAGES CXX C)
+  hpx_add_compile_flag(-RTC1 CONFIGURATIONS Debug LANGUAGES CXX C)
+
+  # VS2012 and above has a special flag for improving the debug experience by
+  # adding more symbol information to the build (-d2Zi)
+  hpx_add_compile_flag(-d2Zi+ CONFIGURATIONS RelWithDebInfo)
+
+  # VS2013 and above know how to do link time constant data segment folding
+  # VS2013 update 2 and above know how to remove debug information for
+  #     non-referenced functions and data (-Zc:inline)
+  if(MSVC12 OR MSVC13)
+    hpx_add_compile_flag(-Zc:inline)
+    hpx_add_compile_flag(-Gw CONFIGURATIONS Release RelWithDebInfo MinSizeRelease)
+    hpx_add_compile_flag(-Zo CONFIGURATIONS RelWithDebInfo)
+  endif()
+  hpx_add_compile_flag(-EHsc)       # Exceptions
+  hpx_add_compile_flag(-GR)         # Runtime type information
+  hpx_add_compile_flag(-MP)         # Multiprocessor build
+  hpx_add_compile_flag(-bigobj)     # Increase the maximum size of object file sections
+endif()
+
+
+#########################
+# Builds
+#
+
+# build cuda
+
+include_directories(${PROJECT_SOURCE_DIR})
+
+
+if(HPXFLOW_BUILD_EXAMPLES)
+    add_hpx_pseudo_target(examples)
+    include_directories(examples)
+    add_subdirectory(examples)
+endif()
+
+#if(HPXFLOW_WITH_DOCUMENTATION)
+#  include(HPX_Documentation)
+#  hpx_option(HPX_BUILD_DOCUMENTATION_SINGLEPAGE BOOL "The HPX documentation should be build as a single page HTML (default OFF)." OFF)
+#  add_subdirectory(docs)
+#endif()
+
+#if(HPXFLOW_WITH_BENCHMARK)
+#   add_hpx_pseudo_target(benchmark)
+#   include_directories(benchmark)
+#    add_subdirectory(benchmark)
+#endif()
+
