@@ -15,42 +15,21 @@
 
 #include <boost/range/functions.hpp>
 // #include <hpx/parallel/algorithms/for_each.hpp>
+#include "mapper.h"
 
-namespace hpx {
-    namespace flow {
-        class count { 
-          public: 
-            int operator()(int value ) 
-            { 
-              return value; 
-            } 
-        }; 
+template <typename T>
+hpxflow &hpx::flow::word_count_tuple::map(T fn){
+    using hpx::parallel::for_each;
+    using hpx::parallel::par;
+    buffer_test.clear();
+    for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
+        [&](tuple<int, int, int, int> value){
+        buffer_test.push_back(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value)));
+    });
 
-        class word_count_tuple { 
-          public: 
-            template <typename T, typename V, typename L>
-            std::tuple<T, V> operator()(L value ) 
-            { 
-              std::make_tuple(value, "1");
-            } 
-        }; 
-
-        template <typename T>
-        hpxflow &map(T fn){
-            using hpx::parallel::for_each;
-            using hpx::parallel::par;
-            buffer_test.clear();
-            for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
-                [&](tuple<int, int, int, int> value){
-                buffer_test.push_back(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value)));
-            });
-
-            buffer_intermediate.clear();
-            buffer_intermediate = buffer_test;
-            return *this;
-        }
-    }
-
+    buffer_intermediate.clear();
+    buffer_intermediate = buffer_test;
+    return *this;
 }
 
 
