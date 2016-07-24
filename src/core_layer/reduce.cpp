@@ -33,14 +33,15 @@ namespace hpx {
 
         class hpxflow{
             std::vector<std::tuple<int, int, int, int>> buffer_intermediate;
+            std::vector<std::tuple<int, int, int, int>> buffer_test;
             template <typename T>
             hpxflow &reduce(T fn) {
-                using hpx::parallel::for_each;
+                //using hpx::parallel::for_each;
                 using hpx::parallel::par;
-                sort(buffer_intermediate.begin(), buffer_intermediate.end(), [](tuple<int, int, int, int> &lhs, tuple<int, int, int, int> &rhs ){ return get<1>(lhs) < get<1>(rhs);});
+                sort(buffer_intermediate.begin(), buffer_intermediate.end(), [](std::tuple<int, int, int, int> &lhs, std::tuple<int, int, int, int> &rhs ){ return std::get<1>(lhs) < std::get<1>(rhs);});
                 buffer_test.clear();
                 for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
-                    [&](tuple<int, int, int, int> value){
+                    [&](std::tuple<int, int, int, int> value){
                     buffer_test.push_back(make_tuple(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value))));
                 });
                 buffer_intermediate.clear();
