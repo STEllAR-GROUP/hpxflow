@@ -4,16 +4,12 @@
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
-
+#ifndef MAPPER_H
+#define MAPPER_H
 
 #include <iostream> 
 #include <tuple>
 
-#include <hpx/hpx.hpp>
-#include <hpx/hpx_init.hpp>
-#include <hpx/include/parallel_algorithm.hpp>
-
-#include <boost/range/functions.hpp>
 // #include <hpx/parallel/algorithms/for_each.hpp>
 
 namespace hpx {
@@ -34,11 +30,14 @@ namespace hpx {
             //   std::make_tuple(value, "1");
             // } 
         }; 
+        class hpxflow{
+            template <typename T>
+            hpxflow &map(T fn);
+        };
 
-        template <typename T>
-        hpxflow &map(T fn);
     }
 
 }
 
+#endif
 
