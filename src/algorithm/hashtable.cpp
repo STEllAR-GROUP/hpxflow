@@ -18,13 +18,7 @@ namespace hpx{
         class HashTable{
             public:
 
-            // template <typename T, typename V>
-            // std::unordered_map<T, V> hashtable;
 
-            // template <typename T, typename V>
-            // template<template <typename...> class Map, typename K, typename V>
-            // typedef unordered_map<T, V> hMap;
-            // unordered_map<K, V> hashmap;
             unordered_map<int, int> hashmap;
 
             int length;

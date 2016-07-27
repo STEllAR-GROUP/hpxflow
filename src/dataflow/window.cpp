@@ -56,18 +56,12 @@ class window{
 	template <typename F>
 	void createWindow(int index, F fn){
 		buffer_window = buffer_intermediate;
-		// unordered_map
-		// std::pair<,double> myshopping ("baking powder",0.3);
+
 		for(int i = 0; i  < buffer_window.size(); i++) {
-			// hashmap.insert(std::get<0>(buffer_window[0]), buffer_window[i]);
-// hashmap.insert(std::make_pair<int, vector<tuple< int, int, int, int>>>(std::get<0>(buffer_window[0]), buffer_window[i]));
-// hashmap.insert(std::make_pair<int, vector<tuple< int, int, int, int>>>(std::get<0>(buffer_window[0]), buffer_window[i]));
 
  /// Set it wright
 
 		}
-		// hashmap.insert(std::get<index>(buffer_window), buffer_window);
-		// return *this;
 	}
 
 	unordered_map<int, vector<tuple<int, int, int, int>> > retrieveWindow(){

@@ -10,7 +10,6 @@
 #include <iostream> 
 #include <tuple>
 
-// #include <hpx/parallel/algorithms/for_each.hpp>
 
 namespace hpx {
     namespace flow {
@@ -24,11 +23,7 @@ namespace hpx {
 
         class word_count_tuple { 
           public: 
-            // template <typename T, typename V, typename L>
-            // std::tuple<T, V> operator()(L value ) 
-            // { 
-            //   std::make_tuple(value, "1");
-            // } 
+
         }; 
         class hpxflow{
             template <typename T>

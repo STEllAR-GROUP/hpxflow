@@ -11,10 +11,4 @@
 #include <map>
 #include "../algorithm/fileoperations.h"
 
-// template <typename L>
-// hpxflow &hpxflow::reduce(L fn, int vl){
-//     fn(vl, buffer_pair_intermediate, inter_map);
-//     return *this;  
-// }
-
 #endif

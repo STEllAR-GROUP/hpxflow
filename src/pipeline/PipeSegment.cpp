@@ -30,13 +30,6 @@ protected:
 
 	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output)
 		{ if (!(output)|| output == this) return false;
-		  // hpx::parallel::for_each(
-				// 		        hpx::parallel::par,
-				// 		        std::begin(theOutput), std::end(theOutput),
-				// 		        [&](HpxFlowPipelineSegmentBase * element) {
-				// 		        	if(theOutput[i] == output) return true;
-		  // });
-
 			for (auto const &element : theOutput) {
 				if(element == output) return true;
 			}
@@ -88,11 +81,6 @@ public:
 
 	virtual ~HpxFlowPipeSegment() {};
 };
-
-// template<class OutputPipeType>
-// const HpxFlowPipelineSegmentBase*;
-// const PipelineSegment<OutputPipeType>::OutputPipeType_Substitutable = (const OutputPipeType*) 0;
-
 
 }
 

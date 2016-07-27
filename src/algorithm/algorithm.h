@@ -145,10 +145,4 @@ namespace hpx
 }
 
 #endif
-// int main(){
-// 	// ifstream stream1("test.txt");
-// 	// ifstream infile; 
-// 	// infile.open("test.txt"); 
-// 	Test t("test.txt");
-// 	t.map([](std::string i) { return std::stoi(i)*2; }).reduce([](std::string i) { std::cout << i << " "; });	
-// }
+

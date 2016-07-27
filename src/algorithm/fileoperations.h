@@ -16,10 +16,8 @@ class hpxflow{
     public:
     
         string buffer, inter_buffer;
-        // string iss;
         char c;
 
-        // template<typename T>
         vector<string> veco;
 
         vector<pair<string, string>> buffer_pair;
