@@ -57,7 +57,7 @@ class window{
 	void createWindow(int index, F fn){
 		buffer_window = buffer_intermediate;
 
-		for(int i = 0; i  < buffer_window.size(); i++) {
+		for(size_t i = 0; i  < buffer_window.size(); i++) {
 
  /// Set it wright
 
