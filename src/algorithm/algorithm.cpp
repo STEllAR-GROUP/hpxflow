@@ -89,8 +89,10 @@ namespace hpx
 				return s+c;
 			}
 
-			// Applies an operation to each and every entries for a given algorithm (less than, greater than, equal to, etc)
-			template<typename V>
-			V const& each(V &v1, V &v2){
+		};
 
-			}
+		
+		
+	}
+}
+

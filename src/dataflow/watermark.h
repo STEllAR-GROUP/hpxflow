@@ -24,10 +24,6 @@ namespace hpx{
 
 			}
 
-			template <typename F>
-            int watermarkSize(F fn){
-			}
-
 		};
 	}
 }
