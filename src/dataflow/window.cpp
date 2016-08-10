@@ -42,33 +42,57 @@ using namespace std;
 
 class window{
 
-	vector<tuple<int, int, int, int>> buffer_intermediate;
-	vector<tuple<int, int, int, int>> buffer_window;
-	unordered_map<int, vector<tuple< int, int, int, int>> > hashmap;
+	// vector<tuple<int, int, int, int>> buffer_intermediate;
+	// vector<tuple<int, int, int, int>> buffer_window;
+	// unordered_map<int, vector<tuple< int, int, int, int>> > hashmap;
 
-	window(){
-	
+	vector<tuple<int, int, int, int>> window_intermediate;
+	vector<vector<tuple<int, int, int, int>>> fixed_window;
+	vector<int> ifpresent;
+
+	window(vector<tuple<int, int, int, int>> buffer){
+		window_intermediate = buffer;
 	}
 	~window(){
-
 	}
 
-	template <typename F>
-	void createWindow(int index, F fn){
-		buffer_window = buffer_intermediate;
+	void sortBuffer(){
+		sort(window_intermediate.begin(), window_intermediate.end(),
+       		[](const tuple<int, int, int, int>& a,
+       		const tuple<int,int, int, int>& b) -> bool
+       		{
+        		return std::get<2>(a) > std::get<2>(b);
+       		});
+	}
 
-		for(size_t i = 0; i  < buffer_window.size(); i++) {
-
- /// Set it wright
-
+	vector<vector<tuple<int, int, int, int>>> fixedWindow(){
+		vector<tuple<int, int, int, int>> intermediate;
+		vector<vector<tuple<int, int, int, int>>> output;
+		vector<int> ifpresent;
+		int ele;
+		for (int i = 0; i < 100; i++) {
+			ele = std::get<2>(window_intermediate[i]);
+			intermediate.push_back(window_intermediate[i]);
+			if(!(std::find(ifpresent.begin(), ifpresent.end(), ele) != ifpresent.end())) {
+				ifpresent.push_back(ele);
+				cout << "Element is: " << ele << endl;
+				for(int n = i+1; n < 100; n++){
+					if(ele == std::get<2>(window_intermediate[n])) {
+						intermediate.push_back(window_intermediate[n]);
+					}
+				}
+				output.push_back(intermediate);
+				intermediate.clear();
+			}
 		}
+		return output;
 	}
 
-	unordered_map<int, vector<tuple<int, int, int, int>> > retrieveWindow(){
-		return hashmap;
-	}
+	// unordered_map<int, vector<tuple<int, int, int, int>> > retrieveWindow(){
+	// 	return hashmap;
+	// }
 	int windowSize(){
-		return hashmap.size();
+		return fixed_window.size();
 	}
 };
 
