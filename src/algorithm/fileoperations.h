@@ -17,29 +17,29 @@
 #include <map>
 #include <cstring>
 
-using namespace std;
+//using namespace std;
 
 class hpxflow{
 
     public:
     
-        string buffer, inter_buffer;
+			std::string buffer, inter_buffer;
         char c;
 
-        vector<string> veco;
+		std::vector<std::string> veco;
 
-        vector<pair<string, string>> buffer_pair;
-        vector<pair<string, string>> buffer_pair_intermediate;
+		std::vector<std::pair<std::string,std:: string>> buffer_pair;
+		std::vector<std::pair<std::string, std::string>> buffer_pair_intermediate;
 
-        map<string, string> inter_map;
+		std::map<std::string, std::string> inter_map;
 
-        hpxflow(string filename);
+        hpxflow(std::string filename);
 
         void toVector();
 
         hpxflow &character_operation(char character, char replace_with);
 
-        hpxflow &write_to_file(string filename);
+        hpxflow &write_to_file(std::string filename);
 
         hpxflow &dump() ;
 
