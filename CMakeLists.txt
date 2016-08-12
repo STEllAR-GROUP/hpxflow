@@ -77,7 +77,7 @@ find_package(Boost 1.58.0 COMPONENTS filesystem system REQUIRED)
 
 ########################################################################
 # configurations
-hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" OFF ADVANCED)
+hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" OFF )
 hpx_option(HPXFLOW_BUILD_TESTS BOOL "Build HPX tests (default: OFF)" OFF ADVANCED)
 hpx_option(HPXFLOW_WITH_DOCUMENTATION BOOL "The HPX documentation toolchain is available (default OFF)." OFF)
     
