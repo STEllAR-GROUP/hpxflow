@@ -25,8 +25,7 @@ parallel programming models), partially based on [Google's DataFlow Model](http:
 ## Building
 
 ```mkdir build && cd build ```
-```cmake -DHPX_ROOT=/path/to/hpx/source/tree\```
-```-DBOOST_ROOT=/your_boost_directory .. ```
+```cmake -DHPX_ROOT=/path/to/hpx/source/tree -DBOOST_ROOT=/your_boost_directory .. ```
 
 ## Options
 
