@@ -18,14 +18,15 @@ parallel programming models), partially based on [Google's DataFlow Model](http:
 
 ## Prequisites:
 
-``` CMake >= 3.0.0```
-``` HPX >= 0.9.11```
-``` Boost >= 1.58.0```
+    CMake >= 3.0.0
+    HPX >= 0.9.11
+    Boost >= 1.58.0
 
 ## Building
 
-```mkdir build && cd build ```
-```cmake -DHPX_ROOT=/path/to/hpx/source/tree -DBOOST_ROOT=/your_boost_directory .. ```
+    mkdir build
+    cd build
+    cmake -DHPX_ROOT=/path/to/hpx/source/tree -DBOOST_ROOT=/your_boost_directory ..
 
 ## Options
 
