@@ -1,0 +1,580 @@
+The system is: Linux - 3.8.13-1-amd64 - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/gcc/5.2/bin/g++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/anigam/hpxflow/build/CMakeFiles/3.2.2/CompilerIdCXX/a.out"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2690513051/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2690513051.dir/build.make CMakeFiles/cmTryCompileExec2690513051.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2690513051.dir/testCXXCompiler.cxx.o
+/opt/gcc/5.2/bin/g++     -o CMakeFiles/cmTryCompileExec2690513051.dir/testCXXCompiler.cxx.o -c /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2690513051
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2690513051.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/g++        CMakeFiles/cmTryCompileExec2690513051.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2690513051 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec134955865/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec134955865.dir/build.make CMakeFiles/cmTryCompileExec134955865.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o
+/opt/gcc/5.2/bin/g++     -o CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.2/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec134955865
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec134955865.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/g++       -v CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec134955865 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/gcc/5.2/bin/g++
+COLLECT_LTO_WRAPPER=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ./configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/opt/gcc/5.2
+Thread model: posix
+gcc version 5.2.0 (GCC) 
+COMPILER_PATH=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec134955865' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2 -plugin /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so -plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMizvB3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec134955865 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../.. CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o /usr/lib/x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTryCompileExec134955865/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec134955865.dir/build.make CMakeFiles/cmTryCompileExec134955865.dir/build]
+  ignore line: [make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/gcc/5.2/bin/g++     -o CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.2/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec134955865]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec134955865.dir/link.txt --verbose=1]
+  ignore line: [/opt/gcc/5.2/bin/g++       -v CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec134955865 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/gcc/5.2/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ./configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/opt/gcc/5.2]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec134955865' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2 -plugin /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so -plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMizvB3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec134955865 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../.. CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o /usr/lib/x86_64-linux-gnu/crtn.o]
+    arg [/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccMizvB3.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec134955865] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0]
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4] ==> dir [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4]
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..]
+    arg [CMakeFiles/cmTryCompileExec134955865.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0] ==> [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64] ==> [/opt/gcc/5.2/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4] ==> [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..] ==> [/opt/gcc/5.2/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0;/opt/gcc/5.2/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64;/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64;/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64;/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4;/opt/gcc/5.2/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1592484953/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1592484953.dir/build.make CMakeFiles/cmTryCompileExec1592484953.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1592484953.dir/feature_tests.cxx.o
+/opt/gcc/5.2/bin/g++    -std=c++14 -o CMakeFiles/cmTryCompileExec1592484953.dir/feature_tests.cxx.o -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec1592484953
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1592484953.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/g++        CMakeFiles/cmTryCompileExec1592484953.dir/feature_tests.cxx.o  -o cmTryCompileExec1592484953 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec307647397/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec307647397.dir/build.make CMakeFiles/cmTryCompileExec307647397.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec307647397.dir/feature_tests.cxx.o
+/opt/gcc/5.2/bin/g++    -std=c++11 -o CMakeFiles/cmTryCompileExec307647397.dir/feature_tests.cxx.o -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec307647397
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec307647397.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/g++        CMakeFiles/cmTryCompileExec307647397.dir/feature_tests.cxx.o  -o cmTryCompileExec307647397 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec873643107/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec873643107.dir/build.make CMakeFiles/cmTryCompileExec873643107.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec873643107.dir/feature_tests.cxx.o
+/opt/gcc/5.2/bin/g++    -std=c++98 -o CMakeFiles/cmTryCompileExec873643107.dir/feature_tests.cxx.o -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTryCompileExec873643107
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec873643107.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/g++        CMakeFiles/cmTryCompileExec873643107.dir/feature_tests.cxx.o  -o cmTryCompileExec873643107 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/gcc/5.2/bin/gcc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/anigam/hpxflow/build/CMakeFiles/3.2.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2924661158/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2924661158.dir/build.make CMakeFiles/cmTryCompileExec2924661158.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2924661158.dir/testCCompiler.c.o
+/opt/gcc/5.2/bin/gcc    -o CMakeFiles/cmTryCompileExec2924661158.dir/testCCompiler.c.o   -c /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2924661158
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2924661158.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/gcc       CMakeFiles/cmTryCompileExec2924661158.dir/testCCompiler.c.o  -o cmTryCompileExec2924661158 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4171340429/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4171340429.dir/build.make CMakeFiles/cmTryCompileExec4171340429.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o
+/opt/gcc/5.2/bin/gcc    -o CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.2/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec4171340429
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4171340429.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/gcc      -v CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec4171340429 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/gcc/5.2/bin/gcc
+COLLECT_LTO_WRAPPER=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ./configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/opt/gcc/5.2
+Thread model: posix
+gcc version 5.2.0 (GCC) 
+COMPILER_PATH=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4171340429' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2 -plugin /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so -plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccP4JGdK.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4171340429 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../.. CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o /usr/lib/x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTryCompileExec4171340429/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec4171340429.dir/build.make CMakeFiles/cmTryCompileExec4171340429.dir/build]
+  ignore line: [make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/gcc/5.2/bin/gcc    -o CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.2/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec4171340429]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4171340429.dir/link.txt --verbose=1]
+  ignore line: [/opt/gcc/5.2/bin/gcc      -v CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec4171340429 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/gcc/5.2/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ./configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/opt/gcc/5.2]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64/:/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64/:/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64/:/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4/:/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4171340429' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2 -plugin /opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so -plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccP4JGdK.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4171340429 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64 -L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4 -L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../.. CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o /usr/lib/x86_64-linux-gnu/crtn.o]
+    arg [/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/gcc/5.2/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccP4JGdK.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec4171340429] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0]
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+    arg [-L/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4] ==> dir [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4]
+    arg [-L/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..] ==> dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..]
+    arg [CMakeFiles/cmTryCompileExec4171340429.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/crtend.o] ==> ignore
+    arg [/usr/lib/x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0] ==> [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../../lib64] ==> [/opt/gcc/5.2/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/ipp/../compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64] ==> [/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64]
+  collapse library dir [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4] ==> [/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4]
+  collapse library dir [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../..] ==> [/opt/gcc/5.2/lib]
+  implicit libs: [c]
+  implicit dirs: [/opt/gcc/5.2/lib/gcc/x86_64-unknown-linux-gnu/5.2.0;/opt/gcc/5.2/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/opt/intel/composer_xe_2015.2.164/compiler/lib/intel64;/opt/intel/composer_xe_2015.2.164/mkl/lib/intel64;/opt/intel/composer_xe_2015.2.164/ipp/lib/intel64;/opt/intel/composer_xe_2015.2.164/tbb/lib/intel64/gcc4.4;/opt/gcc/5.2/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec554518125/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec554518125.dir/build.make CMakeFiles/cmTryCompileExec554518125.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec554518125.dir/feature_tests.c.o
+/opt/gcc/5.2/bin/gcc   -std=c11 -o CMakeFiles/cmTryCompileExec554518125.dir/feature_tests.c.o   -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec554518125
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec554518125.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/gcc       CMakeFiles/cmTryCompileExec554518125.dir/feature_tests.c.o  -o cmTryCompileExec554518125 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4264303510/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4264303510.dir/build.make CMakeFiles/cmTryCompileExec4264303510.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4264303510.dir/feature_tests.c.o
+/opt/gcc/5.2/bin/gcc   -std=c99 -o CMakeFiles/cmTryCompileExec4264303510.dir/feature_tests.c.o   -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec4264303510
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4264303510.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/gcc       CMakeFiles/cmTryCompileExec4264303510.dir/feature_tests.c.o  -o cmTryCompileExec4264303510 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1879566484/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1879566484.dir/build.make CMakeFiles/cmTryCompileExec1879566484.dir/build
+make[1]: Entering directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/anigam/hpxflow/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1879566484.dir/feature_tests.c.o
+/opt/gcc/5.2/bin/gcc   -std=c90 -o CMakeFiles/cmTryCompileExec1879566484.dir/feature_tests.c.o   -c /home/anigam/hpxflow/build/CMakeFiles/feature_tests.c
+Linking C executable cmTryCompileExec1879566484
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1879566484.dir/link.txt --verbose=1
+/opt/gcc/5.2/bin/gcc       CMakeFiles/cmTryCompileExec1879566484.dir/feature_tests.c.o  -o cmTryCompileExec1879566484 -rdynamic 
+make[1]: Leaving directory `/home/anigam/hpxflow/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
