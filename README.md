@@ -14,3 +14,22 @@ parallel programming models), partially based on [Google's DataFlow Model](http:
 
 ```t.map([](std::string i) { return std::stoi(i)*2; }).reduce([](std::string i) {hpx::flow::count() });```
 
+# Build
+
+## Prequisites:
+
+* CMake >=
+* HPX >=
+* Boost >=
+
+## Building
+
+mkdir build && cd build 
+cmake \
+-DBOOST_ROOT=<path to boost installation> \
+..
+
+## Options
+
+* Build examples:  -DHPXFLOW_BUILD_EXAMPLE (Default=OFF)
+
