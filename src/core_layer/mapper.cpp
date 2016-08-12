@@ -29,7 +29,7 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::map(T fn){
     using hpx::parallel::par;
     buffer_test.clear();
     for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
-        [&](tuple<int, int, int, int> value){
+        [&](std::tuple<int, int, int, int> value){
         buffer_test.push_back(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value)));
     });
 
