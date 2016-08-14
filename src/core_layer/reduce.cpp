@@ -11,6 +11,7 @@
 #include <hpx/hpx.hpp>
 // #include "reduce.h"
 #include <hpx/hpx_init.hpp>
+#include <hpx/include/parallel_algorithm.hpp>
 #include <hpx/include/parallel_sort.hpp>
 
 namespace hpx {
@@ -33,20 +34,36 @@ namespace hpx {
         }; 
 
         class hpxflow{
-            std::vector<std::tuple<int, int, int, int>> buffer_intermediate;
-            std::vector<std::tuple<int, int, int, int>> buffer_test;
+
+            std::vector<std::tuple<int, int, int, int>> window_intermediate;
+            std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
             template <typename T>
-            hpxflow &reduce(T fn) {
-                //using hpx::parallel::for_each;
+            hpx::flow::hpxflow &hpx::flow::reduce(T fn) {
+                using hpx::parallel::for_each;
                 using hpx::parallel::par;
-                sort(buffer_intermediate.begin(), buffer_intermediate.end(), [](std::tuple<int, int, int, int> &lhs, std::tuple<int, int, int, int> &rhs ){ return std::get<1>(lhs) < std::get<1>(rhs);});
-                buffer_test.clear();
-                for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
-                    [&](std::tuple<int, int, int, int> value){
-                    buffer_test.push_back(make_tuple(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value))));
+                sortBuffer();
+                window_intermediate.clear();
+                for_each(par, 0, fixed_window.size(),
+                    [&](int i){
+                        for_loop(par, 0, fixed_window[i].size(), 
+                            [&](int j) {
+                                window_intermediate.push_back(fn(fixed_window[i][j]));     
+                        });
                 });
-                buffer_intermediate.clear();
-                buffer_intermediate = buffer_test;
+                fixedWindow();
+                return *this;
+            } 
+
+            hpx::flow::hpxflow &hpx::flow::reduceSet(T fn) {
+                using hpx::parallel::for_each;
+                using hpx::parallel::par;
+                sortBuffer();
+                window_intermediate.clear();
+                for_each(par, 0, fixed_window.size(),
+                    [&](int i){
+                         window_intermediate.push_back(fn(fixed_window[i]));     
+                });
+                fixedWindow();
                 return *this;
             }   
         };

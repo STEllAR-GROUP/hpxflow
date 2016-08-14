@@ -65,7 +65,7 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
 }
 
 template <typename T>
-hpx::flow::hpxflow &hpx::flow::hpxflow::mapperAll(T fn) {
+hpx::flow::hpxflow &hpx::flow::hpxflow::mapperSet(T fn) {
     std::vector<std::tuple<int, int, int, int>> window_intermediate;
     std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
     using hpx::parallel::for_each;
