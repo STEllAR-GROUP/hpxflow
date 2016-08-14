@@ -27,7 +27,9 @@ namespace hpx {
         }; 
         class hpxflow{
             template <typename T>
-            hpxflow &map(T fn);
+            hpxflow &mapper(T fn);
+            template <typename F>
+            hpxflow &mapperAll(F fn);
         };
 
     }

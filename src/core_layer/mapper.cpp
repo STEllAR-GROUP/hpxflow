@@ -21,21 +21,35 @@
 #include "../algorithm/fileoperations.h"
 
 template <typename T>
-hpx::flow::hpxflow &hpx::flow::hpxflow::map(T fn){
-
-    std::vector<std::pair<std::string, std::string>> buffer_test;
-    std::vector<std::pair<std::string, std::string>> buffer_intermediate;
+hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
+    std::vector<std::tuple<int, int, int, int>> window_intermediate;
+    std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
     using hpx::parallel::for_each;
     using hpx::parallel::par;
-    buffer_test.clear();
-    for_each(par, buffer_intermediate.begin(), buffer_intermediate.end(),
-        [&](std::tuple<int, int, int, int> value){
-        buffer_test.push_back(fn(std::get<0>(value), std::get<1>(value), std::get<2>(value), std::get<3>(value)));
+    window_intermediate.clear();
+    for_loop(par, 0, fixed_window.size(), 
+        [&](int j) {
+            for_loop(par, 0, fixed_window[j].size(), 
+                [&](int k) {
+                    window_intermediate.push_back(fn(fixed_window[j][k]));
+            });
     });
 
-    buffer_intermediate.clear();
-    buffer_intermediate = buffer_test;
+    fixedWindow();
     return *this;
 }
 
-
+template <typename T>
+hpx::flow::hpxflow &hpx::flow::hpxflow::mapperAll(T fn) {
+    std::vector<std::tuple<int, int, int, int>> window_intermediate;
+    std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+    using hpx::parallel::for_each;
+    using hpx::parallel::par;
+    window_intermediate.clear();
+    for_loop(par, 0, fixed_window.size(), 
+        [&](int j) {
+            window_intermediate.push_back(fn(fixed_window[j]));     
+    });
+    fixedWindow();
+    return *this;
+}
