@@ -54,6 +54,75 @@ else()
     endif()
 endif()
 
+FIND_PATH(HYPERTABLE_INCLUDE_DIR Hypertable/Lib/Client.h 
+  /usr/include
+  /usr/local/include 
+  /usr/hypertable/current/include
+  /usr/local/hypertable/current/include
+  /opt/hypertable/current/include
+)
+
+
+FIND_FILE(HYPERTABLE_CONFIG_FILE conf/hypertable.cfg
+  /usr/include
+  /usr/local/include 
+  /usr/hypertable/current
+  /usr/local/hypertable/current
+  /opt/hypertable/current
+)
+
+FIND_PATH(HYPERTABLE_INSTALL_DIR conf/hypertable.cfg
+  /usr/include
+  /usr/local/include 
+  /usr/hypertable/current
+  /usr/local/hypertable/current
+  /opt/hypertable/current
+)
+
+set(HYPER_LIB_PATHS 
+    /usr/lib 
+    /usr/local/lib
+    /usr/hypertable/current/lib
+    /usr/local/hypertable/current/lib
+    /opt/hypertable/current/lib
+)
+
+FIND_LIBRARY(HYPERTABLE_LIBRARY NAMES HyperCommon PATHS ${HYPER_LIB_PATHS})
+FIND_LIBRARY(HYPER_DFS_BROKER NAMES HyperDfsBroker PATHS ${HYPER_LIB_PATHS})
+
+IF(HYPERTABLE_INCLUDE_DIR AND HYPERTABLE_LIBRARY)
+  SET(HYPERTABLE_FOUND 1)
+  SET(HYPERTABLE_LIBRARIES ${HYPERTABLE_LIBRARY} ${HYPER_DFS_BROKER})
+  SET(HYPERTABLE_INCLUDE_DIRS ${HYPERTABLE_INCLUDE_DIR})
+
+  MESSAGE(STATUS "Found these hypertable libs: ${HYPERTABLE_LIBRARIES}")
+  MESSAGE(STATUS "Found hypertable install path: ${HYPERTABLE_INSTALL_DIR}")
+  MESSAGE(STATUS "Found hypertable config file: ${HYPERTABLE_CONFIG_FILE}")
+
+  ADD_DEFINITIONS(-DHYPERTABLE_INSTALL_DIR=\\"${HYPERTABLE_INSTALL_DIR}/\\")
+  ADD_DEFINITIONS(-DHYPERTABLE_CONFIG_FILE=\\"${HYPERTABLE_CONFIG_FILE}\\")
+
+ELSE(HYPERTABLE_INCLUDE_DIR AND HYPERTABLE_LIBRARY)
+  SET(HYPERTABLE_FOUND 0)
+  SET(HYPERTABLE_LIBRARIES)
+  SET(HYPERTABLE_INCLUDE_DIRS)
+ENDIF(HYPERTABLE_INCLUDE_DIR AND HYPERTABLE_LIBRARY)
+
+IF(NOT HYPERTABLE_FOUND)
+  SET(HYPERTABLE_DIR_MESSAGE "HyperTable was not found. Make sure HYPERTABLE_LIBRARY and HYPERTABLE_INCLUDE_DIR are set.")
+  IF(NOT HYPERTABLE_FIND_QUIETLY)
+    MESSAGE(STATUS "${HYPERTABLE_DIR_MESSAGE}")
+  ELSE(NOT HYPERTABLE_FIND_QUIETLY)
+    IF(HYPERTABLE_FIND_REQUIRED)
+      MESSAGE(FATAL_ERROR "${HYPERTABLE_DIR_MESSAGE}")
+    ENDIF(HYPERTABLE_FIND_REQUIRED)
+  ENDIF(NOT HYPERTABLE_FIND_QUIETLY)
+ENDIF(NOT HYPERTABLE_FOUND)
+
+MARK_AS_ADVANCED(
+  HYPERTABLE_INCLUDE_DIRS
+  HYPERTABLE_LIBRARIES
+)
 
 list(APPEND CMAKE_MODULE_PATH "${HPX_PREFIX}/../cmake/")
 
@@ -73,7 +142,9 @@ add_hpx_component(libhpxflow
 		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s}
 		)
 
-find_package(Boost 1.58.0 COMPONENTS filesystem system REQUIRED)
+# hypertable requires boost iostreams
+
+find_package(Boost 1.58.0 COMPONENTS date_time filesystem program_options regex serialization system thread REQUIRED)
 
 ########################################################################
 # configurations
