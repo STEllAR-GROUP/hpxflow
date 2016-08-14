@@ -37,8 +37,42 @@ namespace hpx {
 
             std::vector<std::tuple<int, int, int, int>> window_intermediate;
             std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+            
+            std::vector<std::vector<std::tuple<int, int, int, int>>> fixedWindow(){
+                std::vector<std::tuple<int, int, int, int>> intermediate;
+                std::vector<std::vector<std::tuple<int, int, int, int>>> output;
+                std::vector<int> ifpresent;
+   // std::vector<std::tuple<int, int, int, int>> window_intermediate;
+   // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+                int ele;
+                for (int i = 0; i < 100; i++) {
+                    ele = std::get<2>(window_intermediate[i]);
+                    intermediate.push_back(window_intermediate[i]);
+                    if(!(std::find(ifpresent.begin(), ifpresent.end(), ele) != ifpresent.end())) {
+                        ifpresent.push_back(ele);
+                        std::cout << "Element is: " << ele << std::endl;
+                        for(int n = i+1; n < 100; n++){
+                            if(ele == std::get<2>(window_intermediate[n])) {
+                                intermediate.push_back(window_intermediate[n]);
+                            }
+                        }
+                        output.push_back(intermediate);
+                        intermediate.clear();
+                    }
+            }
+            return output;
+        }
+               
+       void sortBuffer(){
+            std::sort(window_intermediate.begin(), window_intermediate.end(),
+                [](const std::tuple<int, int, int, int>& a,
+                    const std::tuple<int,int, int, int>& b) -> bool
+                    {
+                        return std::get<2>(a) > std::get<2>(b);
+                    });
+        }
             template <typename T>
-            hpx::flow::hpxflow &hpx::flow::reduce(T fn) {
+            hpxflow &reduce(T fn) {
                 using hpx::parallel::for_each;
                 using hpx::parallel::par;
                 sortBuffer();
@@ -54,7 +88,8 @@ namespace hpx {
                 return *this;
             } 
 
-            hpx::flow::hpxflow &hpx::flow::reduceSet(T fn) {
+            template <typename T>
+            hpxflow &reduceSet(T fn) {
                 using hpx::parallel::for_each;
                 using hpx::parallel::par;
                 sortBuffer();
