@@ -20,6 +20,31 @@
 #include "mapper.h"
 #include "../algorithm/fileoperations.h"
 
+std::vector<std::vector<std::tuple<int, int, int, int>>> fixedWindow(){
+    std::vector<std::tuple<int, int, int, int>> intermediate;
+    std::vector<std::vector<std::tuple<int, int, int, int>>> output;
+    std::vector<int> ifpresent;
+    std::vector<std::tuple<int, int, int, int>> window_intermediate;
+    std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+    int ele;
+    for (int i = 0; i < 100; i++) {
+        ele = std::get<2>(window_intermediate[i]);
+            intermediate.push_back(window_intermediate[i]);
+            if(!(std::find(ifpresent.begin(), ifpresent.end(), ele) != ifpresent.end())) {
+                ifpresent.push_back(ele);
+                std::cout << "Element is: " << ele << std::endl;
+                for(int n = i+1; n < 100; n++){
+                    if(ele == std::get<2>(window_intermediate[n])) {
+                        intermediate.push_back(window_intermediate[n]);
+                    }
+                }
+                output.push_back(intermediate);
+                intermediate.clear();
+            }
+     }
+     return output;
+}
+
 template <typename T>
 hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
     std::vector<std::tuple<int, int, int, int>> window_intermediate;
