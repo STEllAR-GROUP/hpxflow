@@ -71,8 +71,8 @@ file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )
 
 add_hpx_component(libhpxflow
 		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
-		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s}
-    DEPENDENCIES ${HYPERTABLE_INCLUDE_DIR} ${HYPERTABLE_CONFIG_FILE} ${HYPERTABLE_INSTALL_DIR} ${HYPER_LIB_PATHS}
+		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s} ${HYPERTABLE_INCLUDE_DIR}
+#    DEPENDENCIES  ${HYPER_LIB_PATHS}
 		)
 
 # hypertable requires boost iostreams
