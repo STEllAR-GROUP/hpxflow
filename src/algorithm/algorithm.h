@@ -46,10 +46,7 @@ namespace hpx
             }
 
             template <typename T>
-            Algorithm &map(T );
-
-            template <typename T>
-            Algorithm &reduce(T );
+            Algorithm &dymcFunc(T);
 
             template<typename T>
             bool equal(const T &, const T &);

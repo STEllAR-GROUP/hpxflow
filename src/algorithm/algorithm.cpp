@@ -5,6 +5,12 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file algorithm.h
+ * @author Aalekh Nigam
+ * @brief This file contains some fundamental helper algorithm for the help of library users
+ */
+
 #include <regex>
 #include <map>
 #include <array>
@@ -23,48 +29,68 @@
 #include <utility>
 #include <algorithm>
 #include <iterator>
+
 #include "algorithm.h"
+ 
+/**
+ * @brief Wrapper for dynamic function execution.
+ *
+ */
 
 template <typename T>
-hpx::flow::Algorithm &hpx::flow::Algorithm::map(T fn) {
-    buffer = fn(strm_);
-}
-
-template <typename T>
-hpx::flow::Algorithm &hpx::flow::Algorithm::reduce(T fn) {
+hpx::flow::Algorithm &hpx::flow::Algorithm::dymcFunc(T fn) {
     fn(buffer);
 }   
+
+/**
+ * @brief Comparator operator between two data types
+ */
 
 template<typename T>
 bool hpx::flow::Algorithm::equal(const T &s, const T &c) {
     return s == c;
 }
 
-// Checks for the greater value, for ex: s > c
+/**
+ * Checks for the greater value, for ex: s > c
+ */
+
 template<typename T>
 bool hpx::flow::Algorithm::grt(const T &s, const T &c) {
     return s > c;
 }
 
-// Checks for the greater value, for ex: s < c
+/**
+ * @brief Checks for the greater value, for ex: s < c
+ */
+
 template<typename T>
 bool hpx::flow::Algorithm::lst(const T &s, const T &c) {
     return s < c;
 }
 
-// Checks for the greater value, for ex: s >= c
+/**
+ * @brief Checks for the greater value, for ex: s >= c
+ */
+
 template<typename T>
 bool hpx::flow::Algorithm::grt_equal(const T &s, const T &c) {
     return s >= c;
 }
 
-// Checks for the greater value, for ex: s =< c
+/**
+ * @brief Checks for the greater value, for ex: s =< c
+ */
+
 template<typename T>
 bool hpx::flow::Algorithm::lst_equal(const T &s, const T &c) {
     return s <= c;
 }
 
-// Summation of two values
+/**
+ * @brief Summation of two values
+ */
+
 template<typename T>
 T const& hpx::flow::Algorithm::summation(T &s, T &c) {
     return s+c;
