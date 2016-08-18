@@ -1,4 +1,5 @@
-#include "Queue.h"                                                               
+#include "queue.h"    
+#include "buffer.h"                                                           
 #include <iostream>                                                              
 #include <iostream>                                                              
 #include <atomic>                                                                
@@ -7,21 +8,21 @@
 
 template <typename T>
 
-class Buffer {
-public:
+// class Buffer {
+// public:
 
-    Queue<T> q; 
-    int no_of_threads_consumer;
-    int no_of_threads_producer;
+//     Queue<T> q; 
+//     int no_of_threads_consumer;
+//     int no_of_threads_producer;
  
-public:
-    Buffer(int no_consumer, int no_producer)
-    {
-        no_of_threads_consumer = no_consumer;
-        no_of_threads_producer = no_producer;
-    }
+// public:
+    // Buffer::Buffer(int no_consumer, int no_producer)
+    // {
+    //     no_of_threads_consumer = no_consumer;
+    //     no_of_threads_producer = no_producer;
+    // }
 
-    void insert(vector<tuple<int, int, int, int>> inter, Queue<int>& q, int n){
+    void Buffer::insert(std::vector<std::tuple<int, int, int, int>> inter, Queue<int>& q, int n){
         int k = n*inter.size()/no_of_threads_producer;
         int l = (n+1)*inter.size()/no_of_threads_producer;
         for(int j = k-1; j < l; j++){
@@ -30,7 +31,7 @@ public:
     }
 
     template <typename F, Args... args>
-    void consumer_exec(Queue<int>& q, int n, F fn, Args... args){
+    void Buffer::consumer_exec(Queue<int>& q, int n, F fn, Args... args){
         int size = size_queue();
         vector<int> ele;
         for(int i = 0; i < size/n; i++) {
@@ -41,7 +42,7 @@ public:
         }
     }
     // template <typename F>
-    void producers(vector<tuple<int, int, int, int>> intermediate)
+    void Buffer::producers(vector<tuple<int, int, int, int>> intermediate)
     {
         std::vector<std::thread> producer;
         for (int i=1; i < no_of_threads_producer; ++i)                                                       
@@ -52,7 +53,7 @@ public:
     }
     
     template <typename F, Args... args>
-    void consumer( F fn, Args... args) {
+    void Buffer::consumer( F fn, Args... args) {
         std::vector<std::thread> consumer;
         for (int i=1; i < no_of_threads_consumer; ++i)                                                       
             consumers.push_back(std::thread(std::bind(&consumer_exec, std::ref(q), i, F fn, Args... args)));
@@ -61,4 +62,4 @@ public:
             cn.join();                                                                             
     }
 
-};
+// };
