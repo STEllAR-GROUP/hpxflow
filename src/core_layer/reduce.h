@@ -8,14 +8,25 @@
 #ifndef REDUCE_H
 #define REDUCE_H
 
-#include <fstream>
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <cstdlib>
-#include <vector>
-#include <utility>
-#include <map>
-#include "../algorithm/fileoperations.h"
+
+
+namespace hpx {
+    namespace flow { 
+        class reduce{
+
+            // std::vector<std::tuple<int, int, int, int>> window_intermediate;
+            // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+            template <typename T>
+            reduce &reduceSingle(T fn);
+
+            template <typename T>
+            reduce &reduceSet(T fn);
+        };
+    }
+
+}
+
+
 
 #endif

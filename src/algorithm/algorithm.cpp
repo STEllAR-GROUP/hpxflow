@@ -23,76 +23,50 @@
 #include <utility>
 #include <algorithm>
 #include <iterator>
+#include "algorithm.h"
 
+template <typename T>
+hpx::flow::Algorithm &hpx::flow::Algorithm::map(T fn) {
+    buffer = fn(strm_);
+}
 
-using namespace std;
+template <typename T>
+hpx::flow::Algorithm &hpx::flow::Algorithm::reduce(T fn) {
+    fn(buffer);
+}   
 
-namespace hpx
-{
-	namespace flow{
+template<typename T>
+bool hpx::flow::Algorithm::equal(const T &s, const T &c) {
+    return s == c;
+}
 
+// Checks for the greater value, for ex: s > c
+template<typename T>
+bool hpx::flow::Algorithm::grt(const T &s, const T &c) {
+    return s > c;
+}
 
-		class Test{
+// Checks for the greater value, for ex: s < c
+template<typename T>
+bool hpx::flow::Algorithm::lst(const T &s, const T &c) {
+    return s < c;
+}
 
-			std::string strm_;
-			std::string buffer;
-			std::string data;
-		public:
-			Test(std::string strm) {
-				ifstream infile; 
-				infile.open(strm);
-				std::getline(infile, strm_);
-			}
+// Checks for the greater value, for ex: s >= c
+template<typename T>
+bool hpx::flow::Algorithm::grt_equal(const T &s, const T &c) {
+    return s >= c;
+}
 
-			template <typename T>
-			Test &map(T fn) {
-				buffer = fn(strm_);
-			}
+// Checks for the greater value, for ex: s =< c
+template<typename T>
+bool hpx::flow::Algorithm::lst_equal(const T &s, const T &c) {
+    return s <= c;
+}
 
-			template <typename T>
-			Test &reduce(T fn) {
-				fn(buffer);
-			}	
-
-			template<typename T>
-			bool equal(const T &s, const T &c) {
-				return s == c;
-			}
-
-			// Checks for the greater value, for ex: s > c
-			template<typename T>
-			bool grt(const T &s, const T &c) {
-				return s > c;
-			}
-
-			// Checks for the greater value, for ex: s < c
-			template<typename T>
-			bool lst(const T &s, const T &c) {
-				return s < c;
-			}
-
-			// Checks for the greater value, for ex: s >= c
-			template<typename T>
-			bool grt_equal(const T &s, const T &c) {
-				return s >= c;
-			}
-
-			// Checks for the greater value, for ex: s =< c
-			template<typename T>
-			bool lst_equal(const T &s, const T &c) {
-				return s <= c;
-			}
-
-			// Summation of two values
-			template<typename T>
-			T const& summation(T &s, T &c) {
-				return s+c;
-			}
-
-		};
-
-		
-		
-	}
+// Summation of two values
+template<typename T>
+T const& hpx::flow::Algorithm::summation(T &s, T &c) {
+    return s+c;
 }
 
