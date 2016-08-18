@@ -18,11 +18,21 @@
 
 #include "fileoperations.h"
 
-using namespace std;
+//using namespace std;
+/**
+ * @file algorithm.cpp
+ * @author Aalekh Nigam
+ * @brief This file contains some fundamental mechanism for file read/write operations. Parallelization in read/write operation is in work
+ */
 
 
-hpxflow::hpxflow(string filename) { 
-    ifstream inf(filename);
+/**
+ * @brief Basically append as a string
+ *
+ */
+
+hpxflow::hpxflow(std::string filename) { 
+    std::ifstream inf(filename);
 
     while (inf.get(c))
         buffer += c;
@@ -30,27 +40,46 @@ hpxflow::hpxflow(string filename) {
     toVector();
 }
 
+/**
+ * @brief Each string to a word vector
+ *
+ */
+
 void hpxflow::toVector(){
-    istringstream iss(buffer);
-    string word;
+    std::istringstream iss(buffer);
+    std::string word;
     while(iss >> word) {
         veco.push_back(word);
     }
 
 }
 
-hpxflow &hpxflow::write_to_file(string filename){
+/**
+ * @brief Used to output a final result to the file
+ *
+ */
+hpxflow &hpxflow::write_to_file(std::string filename){
     std::ofstream out(filename);
     out << buffer;
     out.close();
     return *this;
 }
 
+/**
+ * @brief Prints the final output (currently in console) 
+ *
+ */
+
 hpxflow &hpxflow::dump() {
-    for (map<string, string>::iterator it=inter_map.begin(); it!=inter_map.end(); ++it)
-        cout << "First :"<< it->first << " Second: " << it->second << '\n' << endl;
+    for (std::map<std::string, std::string>::iterator it=inter_map.begin(); it!=inter_map.end(); ++it)
+        std::cout << "First :"<< it->first << " Second: " << it->second << '\n' << "\n";
     return *this;
 }
+
+/**
+ * @brief Used to implement some filter mechansim based on some lambda function
+ *
+*/
 
 template <typename F, typename... Args>
 hpxflow &hpxflow::filter(int index, F fn, Args... args){
@@ -68,14 +97,24 @@ hpxflow &hpxflow::filter(int index, F fn, Args... args){
     return *this;
 }
 
+/**
+ * @brief Proposed reducer operations when dumping files. 
+ *
+*/
+
 template <typename L>
-hpxflow &hpxflow::reduce(L fn, int vl){
+hpxflow &hpxflow::reducerFile(L fn, int vl){
     fn(vl, buffer_pair_intermediate, inter_map);
     return *this;  
 }
 
+/**
+ * @brief Proposed Mapper operation when reading file in parallel 
+ *
+*/
+
 template <typename T>
-hpxflow &hpxflow::mapper(T t){
+hpxflow &hpxflow::mapperFile(T t){
     for (auto const &value : veco) {
         buffer_pair.push_back(make_pair(t(value).first, t(value).second));
 

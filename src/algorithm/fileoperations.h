@@ -47,10 +47,10 @@ class hpxflow{
         hpxflow &filter(int index, F fn, Args... args);
 
         template <typename L>
-        hpxflow &reduce(L fn, int vl);
+        hpxflow &reducerFile(L fn, int vl);
 
         template <typename T>
-        hpxflow &mapper(T t);
+        hpxflow &mapperFile(T t);
 
 };
 
