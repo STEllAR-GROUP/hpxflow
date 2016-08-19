@@ -16,6 +16,10 @@ endif()
 # This project is C++ based.
 project(hpxflow CXX)
 
+# The version number of the project
+set(VERSION_MAJOR 1 CACHE STRING "Project major version number")
+set(VERSION_MINOR 0 CACHE STRING "Project minor version number")
+
 if(HPX_ROOT)
     set(HPX_DIR "${HPX_ROOT}/lib/cmake/HPX")
 endif()
