@@ -40,3 +40,7 @@ Thumbs.db
 # Build folder
 ######################
 ./build
+
+# Documentation
+######################
+./doc/
