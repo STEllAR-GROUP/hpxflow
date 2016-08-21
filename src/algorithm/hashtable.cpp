@@ -5,6 +5,12 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file algorithm.cpp
+ * @author Aalekh Nigam, Patrick Diehl
+ * @brief This file contains some fundamental mechanism over key/value pair. This hashmap is used in various pats of our program.
+*/
+
 //#include "HashTable.h"
 
 #include <iostream>
@@ -33,6 +39,12 @@ namespace hpx{
                 hashmap.clear();
             }
 
+            /**
+             * @brief Used to insert item into hashmap
+             * @param key
+             * @param value
+            */
+
             template <typename T, typename V>
             void insert_Item( T key, V value ) {
 
@@ -41,23 +53,26 @@ namespace hpx{
 
             }
 
+            /**
+             * @brief Used to remove item from hashmap
+             * @param key
+            */
+
             template <typename T>
             void remove_Item( T key ) {
                 hashmap.erase(key);
             }
+
+            /**
+             * @brief Used to retrieve value from hashmap
+             * @param key
+            */
 
             template <typename T, typename V>            
             V get_Item( T key ) {
                 // template<typename T, typename V> // Check for some work around
                 std::unordered_map<int, int>::const_iterator got = hashmap.find(key);
                 return got->second;
-            }
-
-
-            // Returns the number of Items in the Hash Table.
-            int getNumberOfItems()
-            {
-                return 0;
             }
 
         };
