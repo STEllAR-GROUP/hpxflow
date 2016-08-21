@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * @file algorithm.cpp
+ * @file hashtable.cpp
  * @author Aalekh Nigam, Patrick Diehl
  * @brief This file contains some fundamental mechanism over key/value pair. This hashmap is used in various pats of our program.
 */

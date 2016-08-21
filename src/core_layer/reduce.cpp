@@ -5,6 +5,12 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file reducer.cpp
+ * @author Aalekh Nigam
+ * @brief This file contains functions for helping reducer functions over hpx
+*/
+
 #include <iostream> 
 #include <tuple>
 #include <vector>
@@ -15,6 +21,12 @@
 #include <hpx/include/parallel_sort.hpp>
 #include "../dataflow/window.h"
 #include "../helper/buffer.h"
+
+/**
+ * @brief Applies reducer function, for a given lambda expression over each tuple elements. (vector of tuple is sorted)
+ * returns fluent interface onject, used to apply reducer over each tuple<> values
+ * @param fn
+*/
 
 template <typename T>
 hpx::flow::reduce &hpx::flow::reduce::reduceSingle(T fn) {
@@ -33,6 +45,12 @@ hpx::flow::reduce &hpx::flow::reduce::reduceSingle(T fn) {
     obj.fixedWindow();
     return *this;
 } 
+
+/**
+ * @brief Applies reducer function, for a given lambda expression over vector(tuple) elements. (vector of tuple is sorted)
+ * returns fluent interface onject, used to apply reducer over vector<tuple<>> values
+ * @param fn
+*/
 
 template <typename T>
 hpx::flow::reduce &hpx::flow::reduce::reduceSet(T fn) {

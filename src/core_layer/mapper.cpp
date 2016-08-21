@@ -6,6 +6,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+/**
+ * @file mapper.cpp
+ * @author Aalekh Nigam
+ * @brief This file contains functions for helping mapper functions over hpx
+*/
+
 #include <iostream> 
 #include <tuple>
 #include <vector>
@@ -20,6 +26,13 @@
 #include "mapper.h"
 #include "../dataflow/window.h"
 #include "../helper/buffer.h"
+
+
+/**
+ * @brief Applies mapper function, for a given lambda expression over each tuple elements.
+ * returns fluent interface onject, used to apply mapper over each tuple<> values
+ * @param fn
+*/
 
 template <typename T>
 hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
@@ -40,6 +53,12 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
     obj.fixedWindow();
     return *this;
 }
+
+/**
+ * @brief Applies mapper function, for a given lambda expression over vector of tuples.
+ * returns fluent interface object, used to apply mapper over each vector<tuple<>> values
+ * @param fn
+*/
 
 template <typename T>
 hpx::flow::hpxflow &hpx::flow::hpxflow::mapperSet(T fn) {

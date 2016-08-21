@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * @file algorithm.cpp
+ * @file fileoperations.cpp
  * @author Aalekh Nigam, Patrick Diehl
  * @brief This file contains some fundamental mechanism for file read/write operations. Parallelization in read/write operation is in work
 */
