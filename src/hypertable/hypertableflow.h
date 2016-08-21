@@ -18,13 +18,17 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <tuple>
 
 using namespace Hypertable;
 using namespace Hypertable::ThriftGen;
-using namespace std;
 
 class hypertableflow{
 
   void test_basic(Thrift::Client);
+  std::vector<std::tuple<int, int, int, int>> retrieve_tuple(Thrift::Client);
+  void insert_tuple(Thrift::Client, int, int, int, int, int);
+
 };
 #endif
