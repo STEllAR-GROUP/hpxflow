@@ -9,7 +9,7 @@
  * @file algorithm.h
  * @author Aalekh Nigam
  * @brief This file contains some fundamental helper algorithm for the help of library users
- */
+*/
 
 #include <regex>
 #include <map>
@@ -34,65 +34,86 @@
  
 /**
  * @brief Wrapper for dynamic function execution.
+ * returns fluent interface onject, used just to execute the function
+ * @param fn
  *
- */
+*/
 
 template <typename T>
 hpx::flow::Algorithm &hpx::flow::Algorithm::dymcFunc(T fn) {
     fn(buffer);
+    return *this;
 }   
 
 /**
  * @brief Comparator operator between two data types
- */
+ * returns the boolean value for denoting if the two are equal
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-bool hpx::flow::Algorithm::equal(const T &s, const T &c) {
-    return s == c;
+bool hpx::flow::Algorithm::equal(const T &first_value, const T &second_value) {
+    return first_value == second_value;
 }
 
 /**
  * Checks for the greater value, for ex: s > c
- */
+ * returns the boolean value for denoting if first value is greater than the second
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-bool hpx::flow::Algorithm::grt(const T &s, const T &c) {
-    return s > c;
+bool hpx::flow::Algorithm::grt(const T &first_value, const T &second_value) {
+    return first_value > second_value;
 }
 
 /**
  * @brief Checks for the greater value, for ex: s < c
- */
+ * returns the boolean value for denoting if first value is smaller than the second
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-bool hpx::flow::Algorithm::lst(const T &s, const T &c) {
-    return s < c;
+bool hpx::flow::Algorithm::lst(const T &first_value, const T &second_value) {
+    return first_value < second_value;
 }
 
 /**
  * @brief Checks for the greater value, for ex: s >= c
- */
+ * returns the boolean value for denoting if first value is greater than or equal to the second
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-bool hpx::flow::Algorithm::grt_equal(const T &s, const T &c) {
-    return s >= c;
+bool hpx::flow::Algorithm::grt_equal(const T &first_value, const T &second_value) {
+    return first_value >= second_value;
 }
 
 /**
  * @brief Checks for the greater value, for ex: s =< c
- */
+ * returns the boolean value for denoting if first value is less than or equal to the second
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-bool hpx::flow::Algorithm::lst_equal(const T &s, const T &c) {
-    return s <= c;
+bool hpx::flow::Algorithm::lst_equal(const T &first_value, const T &second_value) {
+    return first_value <= second_value;
 }
 
 /**
  * @brief Summation of two values
- */
+ * returns sum of the two parameters
+ * @param first_value
+ * @param second_value
+*/
 
 template<typename T>
-T const& hpx::flow::Algorithm::summation(T &s, T &c) {
-    return s+c;
+T const& hpx::flow::Algorithm::summation(const T &first_value, const T &second_value) {
+    return first_value + second_value;
 }
 

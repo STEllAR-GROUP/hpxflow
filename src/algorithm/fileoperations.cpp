@@ -5,6 +5,11 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file algorithm.cpp
+ * @author Aalekh Nigam, Patrick Diehl
+ * @brief This file contains some fundamental mechanism for file read/write operations. Parallelization in read/write operation is in work
+*/
 
 #include <fstream>
 #include <iostream>
@@ -18,18 +23,11 @@
 
 #include "fileoperations.h"
 
-//using namespace std;
-/**
- * @file algorithm.cpp
- * @author Aalekh Nigam
- * @brief This file contains some fundamental mechanism for file read/write operations. Parallelization in read/write operation is in work
- */
-
-
 /**
  * @brief Basically append as a string
- *
- */
+ * returns fluent interface onject, used insert file elements to tuple
+ * @param filename
+*/
 
 hpxflow::hpxflow(std::string filename) { 
     std::ifstream inf(filename);
@@ -38,12 +36,13 @@ hpxflow::hpxflow(std::string filename) {
         buffer += c;
 
     toVector();
+    return *this;
 }
 
 /**
  * @brief Each string to a word vector
  *
- */
+*/
 
 void hpxflow::toVector(){
     std::istringstream iss(buffer);
@@ -51,13 +50,14 @@ void hpxflow::toVector(){
     while(iss >> word) {
         veco.push_back(word);
     }
-
 }
 
 /**
  * @brief Used to output a final result to the file
- *
- */
+ * returns fluent interface onject, used write to file object.
+ * @param filename
+*/
+
 hpxflow &hpxflow::write_to_file(std::string filename){
     std::ofstream out(filename);
     out << buffer;
@@ -67,8 +67,8 @@ hpxflow &hpxflow::write_to_file(std::string filename){
 
 /**
  * @brief Prints the final output (currently in console) 
- *
- */
+ * returns fluent interface onject, used output processed tuple.
+*/
 
 hpxflow &hpxflow::dump() {
     for (std::map<std::string, std::string>::iterator it=inter_map.begin(); it!=inter_map.end(); ++it)
@@ -78,7 +78,10 @@ hpxflow &hpxflow::dump() {
 
 /**
  * @brief Used to implement some filter mechansim based on some lambda function
- *
+ * returns fluent interface onject, used to apply some filter mechanism.
+ * @param index
+ * @param fn
+ * @param args 
 */
 
 template <typename F, typename... Args>
@@ -99,7 +102,9 @@ hpxflow &hpxflow::filter(int index, F fn, Args... args){
 
 /**
  * @brief Proposed reducer operations when dumping files. 
- *
+ * returns fluent interface onject, used to apply paralelization over reducer file write.
+ * @param fn
+ * @param vl 
 */
 
 template <typename L>
@@ -110,8 +115,9 @@ hpxflow &hpxflow::reducerFile(L fn, int vl){
 
 /**
  * @brief Proposed Mapper operation when reading file in parallel 
- *
-*/
+ * returns fluent interface onject, used to apply paralelization over mapper file read.
+ * @param t
+*/ 
 
 template <typename T>
 hpxflow &hpxflow::mapperFile(T t){
