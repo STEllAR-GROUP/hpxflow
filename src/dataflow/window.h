@@ -13,6 +13,25 @@
 #include <vector>
 #include <tuple>
 
+#include <regex>
+#include <map>
+#include <array>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
+#include <limits> 
+#include <set>
+#include <tuple>
+#include <functional>
+#include <utility>
+#include <algorithm>
+#include <iterator>
+#include <functional>
+#include <unordered_map>
+
 namespace hpx{
     namespace flow{
 

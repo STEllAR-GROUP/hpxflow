@@ -9,6 +9,8 @@
 #ifndef FILEOPERATIONS_H
 #define FILEOPERATIONS_H
 
+#include <fstream>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <cstdlib>

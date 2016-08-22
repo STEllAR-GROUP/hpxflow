@@ -1,10 +1,4 @@
-#include "queue.h"    
-#include "buffer.h"                                                           
-#include <iostream>                                                              
-#include <iostream>                                                              
-#include <atomic>                                                                
-#include <thread>                                                                
-#include <vector>  
+#include "buffer.h"
 
 template <typename T>
 

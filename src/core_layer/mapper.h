@@ -9,7 +9,14 @@
 
 #include <iostream> 
 #include <tuple>
+#include <vector>
+#include <string>
+#include <utility>
+#include <hpx/hpx.hpp>
+#include <hpx/hpx_init.hpp>
+#include <hpx/include/parallel_algorithm.hpp>
 
+#include <boost/range/functions.hpp>
 
 namespace hpx {
     namespace flow {

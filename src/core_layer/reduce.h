@@ -8,8 +8,15 @@
 #ifndef REDUCE_H
 #define REDUCE_H
 
-#include <iostream>
-
+#include <iostream> 
+#include <tuple>
+#include <vector>
+#include <hpx/hpx.hpp>
+#include <hpx/hpx_init.hpp>
+#include <hpx/include/parallel_algorithm.hpp>
+#include <hpx/include/parallel_sort.hpp>
+#include "../dataflow/window.h"
+#include "../helper/buffer.h"
 
 namespace hpx {
     namespace flow { 

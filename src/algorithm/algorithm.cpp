@@ -7,7 +7,7 @@
 
 /**
  * @file algorithm.h
- * @author Aalekh Nigam
+ * @author Aalekh Nigam, Patrick Diehl
  * @brief This file contains some fundamental helper algorithm for the help of library users
 */
 

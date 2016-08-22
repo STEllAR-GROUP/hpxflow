@@ -1,7 +1,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "queue.h"                                                               
+#include "queue.h"
 #include <iostream>                                                              
 #include <atomic>                                                                
 #include <thread>                                                                

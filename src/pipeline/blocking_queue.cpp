@@ -16,7 +16,6 @@
 #include <queue>
 #include <functional>
 
-
 using std::thread;
 using namespace std;
 using std::mutex;

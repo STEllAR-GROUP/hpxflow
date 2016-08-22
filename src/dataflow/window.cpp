@@ -5,25 +5,6 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <regex>
-#include <map>
-#include <array>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <list>
-#include <limits> 
-#include <set>
-#include <tuple>
-#include <functional>
-#include <utility>
-#include <algorithm>
-#include <iterator>
-#include <functional>
-#include <unordered_map>
-
 #include "window.h"
 // #include <hpxflow_window.h>
 

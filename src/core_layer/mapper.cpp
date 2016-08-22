@@ -5,17 +5,6 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
-
-#include <iostream> 
-#include <tuple>
-#include <vector>
-#include <string>
-#include <utility>
-#include <hpx/hpx.hpp>
-#include <hpx/hpx_init.hpp>
-#include <hpx/include/parallel_algorithm.hpp>
-
-#include <boost/range/functions.hpp>
 // #include <hpx/parallel/algorithms/for_each.hpp>
 #include "mapper.h"
 #include "../dataflow/window.h"
