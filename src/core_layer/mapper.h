@@ -1,48 +1,48 @@
-////////////////////////////////////////////////////////////////////////////////
-//  Copyright (c) 2016 Aalekh Nigam
-//
-//  Distributed under the Boost Software License, Version 1.0. (See accompanying
-//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-////////////////////////////////////////////////////////////////////////////////
-#ifndef MAPPER_H
-#define MAPPER_H
+// ////////////////////////////////////////////////////////////////////////////////
+// //  Copyright (c) 2016 Aalekh Nigam
+// //
+// //  Distributed under the Boost Software License, Version 1.0. (See accompanying
+// //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+// ////////////////////////////////////////////////////////////////////////////////
+// #ifndef MAPPER_H
+// #define MAPPER_H
 
-#include <iostream> 
-#include <tuple>
-#include <vector>
-#include <string>
-#include <utility>
-#include <hpx/hpx.hpp>
-#include <hpx/hpx_init.hpp>
-#include <hpx/include/parallel_algorithm.hpp>
+// #include <iostream> 
+// #include <tuple>
+// #include <vector>
+// #include <string>
+// #include <utility>
+// #include <hpx/hpx.hpp>
+// #include <hpx/hpx_init.hpp>
+// #include <hpx/include/parallel_algorithm.hpp>
 
-#include <boost/range/functions.hpp>
+// #include <boost/range/functions.hpp>
 
-namespace hpx {
-    namespace flow {
-        class count { 
-          public: 
-            int operator()(int value ) 
-            { 
-              return value; 
-            } 
-        }; 
+// namespace hpx {
+//     namespace flow {
+//         class count { 
+//           public: 
+//             int operator()(int value ) 
+//             { 
+//               return value; 
+//             } 
+//         }; 
 
-        class word_count_tuple { 
-          public: 
+//         class word_count_tuple { 
+//           public: 
 
-        }; 
-        class hpxflow{
-            template <typename T>
-            hpxflow &mapper(T fn);
-            template <typename F>
-            hpxflow &mapperSet(F fn);
-        };
+//         }; 
+//         class hpxflow{
+//             template <typename T>
+//             hpxflow &mapper(T fn);
+//             template <typename F>
+//             hpxflow &mapperSet(F fn);
+//         };
 
-    }
+//     }
 
-}
+// }
 
-#endif
+// #endif
 
 
