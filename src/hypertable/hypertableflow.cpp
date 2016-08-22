@@ -2,7 +2,7 @@
 
 using namespace Hypertable;
 using namespace Hypertable::ThriftGen;
-using namespace std;
+// using namespace std;
 
 void hypertableflow::create_config(Thrift::Client *client) {
 
@@ -19,7 +19,7 @@ void hypertableflow::create_config(Thrift::Client *client) {
     client->table_drop(ns, "Fruits", if_exists);
 
     ThriftGen::Schema schema;
-    map<string, ThriftGen::ColumnFamilySpec> cf_specs;
+    std::map<std::string, ThriftGen::ColumnFamilySpec> cf_specs;
     ThriftGen::ColumnFamilySpec cf;
 
     cf.__set_name("one");
@@ -38,7 +38,7 @@ void hypertableflow::create_config(Thrift::Client *client) {
 
     client->namespace_create("/test/sub");
 
-    vector<ThriftGen::NamespaceListing> listing;
+    std::vector<ThriftGen::NamespaceListing> listing;
 
     client->namespace_get_listing(listing, ns);
 
@@ -71,7 +71,7 @@ std::vector<std::tuple<int, int, int, int>> hypertableflow::retrieve_tuple(Thrif
 
       client->namespace_close(ns);
     } catch (ClientException &e) {
-      cout << e.message << endl;
+      std::cout << e.message << "\n";
       exit(1);
     }
     return inter_final;
@@ -85,7 +85,7 @@ void hypertableflow::insert_tuple(Thrift::Client *client, int first, int second,
       client->namespace_close(ns);
     }
   catch (ClientException &e) {
-    cout << e.message << endl;
+    std::cout << e.message << "\n";
     exit(1);
   }
 }
