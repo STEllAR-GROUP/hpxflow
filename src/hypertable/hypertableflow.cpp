@@ -1,6 +1,6 @@
-#include </opt/hypertable/current/include/Common/Compat.h>
-#include </opt/hypertable/current/include/Common/Logger.h>
-#include </opt/hypertable/current/include/Common/System.h>
+#include <Common/Compat.h>
+#include <Common/Logger.h>
+#include <Common/System.h>
 
 #include <Hypertable/Lib/Key.h>
 #include <Hypertable/Lib/KeySpec.h>
