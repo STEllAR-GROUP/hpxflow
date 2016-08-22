@@ -5,6 +5,12 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file trigger.cpp
+ * @author Aalekh Nigam
+ * @brief This file contains functions for implementing trigger mechanism as described in dataflow paper.
+*/
+
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -24,6 +30,11 @@ class trigger{
 	~trigger(){
 
 	}
+
+	/**
+	 * @brief Defines trigger function, that is supposed to run over each thread
+	 * @param fn
+	*/
 
 	template <typename F> //  Here Fn is watermark function
 	bool run_trigger(F fn) {

@@ -5,6 +5,12 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @file window.cpp
+ * @author Aalekh Nigam
+ * @brief This file contains functions for implementing window mechanism as described in dataflow paper.
+*/
+
 #include <regex>
 #include <map>
 #include <array>
@@ -27,6 +33,9 @@
 #include "window.h"
 // #include <hpxflow_window.h>
 
+/**
+ * @brief Applies sorting function, for a given vector of tuple elements.
+*/
 
 void hpx::flow::window::sortBuffer(){
     sort(window_intermediate.begin(), window_intermediate.end(),
@@ -36,6 +45,11 @@ void hpx::flow::window::sortBuffer(){
             return std::get<2>(a) > std::get<2>(b);
         });
 }
+
+/**
+ * @brief Applies fixedWindow function, for a given set of vector of tuple elements.
+ * returns used to apply fixed over each tuple<> values and returns vector(vector(tuple)) elements.
+*/
 
 std::vector<std::vector<std::tuple<int, int, int, int>>> hpx::flow::window::fixedWindow(){
     std::vector<std::tuple<int, int, int, int>> intermediate;
@@ -58,6 +72,11 @@ std::vector<std::vector<std::tuple<int, int, int, int>>> hpx::flow::window::fixe
     }
     return output;
 }
+
+/**
+ * @brief Returns window size
+ * returns size of window
+*/
 
 int hpx::flow::window::windowSize(){
     return fixed_window.size();
