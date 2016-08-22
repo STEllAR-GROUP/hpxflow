@@ -11,25 +11,6 @@
  * @brief This file contains some fundamental helper algorithm for the help of library users
 */
 
-#include <regex>
-#include <map>
-#include <array>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <math.h>
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <list>
-#include <limits> 
-#include <set>
-#include <utility>
-#include <algorithm>
-#include <iterator>
-
 #include "algorithm.h"
  
 /**
