@@ -63,12 +63,14 @@ else()
 endif()
 
 file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )         
+file( GLOB_RECURSE sources ./src/hypertable/*.cpp  ) 
 file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )    
 file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )        
 file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )  
 
 
-file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )         
+file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )  
+file( GLOB_RECURSE sources ./src/hypertable/*.hpp  )       
 file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp  )    
 file( GLOB_RECURSE headers_f  ./src/dataflow/*.hpp  )        
 file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )  
