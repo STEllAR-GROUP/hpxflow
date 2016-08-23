@@ -36,9 +36,32 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 ########################################################################
 # Include hpx
 # Instruct cmake to find the HPX settings
+
+# Include Apache Thrift [eg: -DTHRIFT_ROOT=/usr/local/include/thrift]
+if(THRIFT_ROOT)
+    include_directories(${THRIFT_ROOT})
+endif()
+
 find_package(HPX REQUIRED)
+
 # Include Hypertable
-find_package(HYPERTABLE)
+find_package(HyperTable REQUIRED)
+
+IF (HYPERTABLE_FOUND)
+  MESSAGE(STATUS "HyperTable was found")
+ELSE (SDLGFX_FOUND)
+  MESSAGE(STATUS "HyperTable missing: needed for Spatial tools (MapExplorer, MapTools, etc.).")
+ENDIF (HYPERTABLE_FOUND)
+
+
+set(HYPER_LIB_PATHS 
+    /usr/lib 
+    /usr/local/lib
+    /usr/hypertable/current/lib
+    /usr/local/hypertable/current/lib
+    /opt/hypertable/current/lib
+)
+FIND_LIBRARY(HYPER_DFS_BROKER NAMES HyperDfsBroker PATHS ${HYPER_LIB_PATHS})
 
 if(NOT (HPX_BUILD_TYPE STREQUAL CMAKE_BUILD_TYPE))
     message("HPX_BUILD_TYPE: " ${HPX_BUILD_TYPE} "CMAKE_BUILD_TYPE: " ${CMAKE_BUILD_TYPE})
@@ -66,12 +89,13 @@ file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )
 file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )    
 file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )        
 file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )  
+file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.cpp ) 
 
-
-file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )         
-file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp  )    
+file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )        
+file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp )    
 file( GLOB_RECURSE headers_f  ./src/dataflow/*.hpp  )        
-file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )  
+file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )
+file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.hpp )   
 
 add_hpx_component(libhpxflow
 		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
@@ -114,7 +138,7 @@ if(MSVC)
 endif()
 
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${CUDA_INCLUDE_DIRS})
+include_directories(${HYPERTABLE_INCLUDE_DIRS})
 
 if(HPXFLOW_BUILD_EXAMPLES)
     add_subdirectory(examples)
