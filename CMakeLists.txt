@@ -89,13 +89,13 @@ file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )
 file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )    
 file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )        
 file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )  
-file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.cpp ) 
+#file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.cpp ) 
 
 file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )        
 file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp )    
 file( GLOB_RECURSE headers_f  ./src/dataflow/*.hpp  )        
 file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )
-file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.hpp )   
+#file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.hpp )   
 
 add_hpx_component(libhpxflow
 		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
