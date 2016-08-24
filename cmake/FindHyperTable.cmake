@@ -41,6 +41,15 @@ FIND_PATH(HYPERTABLE_INSTALL_DIR conf/hypertable.cfg
 	/opt/hypertable/0.9.8.11
 )
 
+# Assume that the base path is the install path
+FIND_PATH(HYPERTABLE_INSTALL_DIR conf/hypertable.cfg
+	/usr/include
+	/usr/local/include 
+	/usr/hypertable/current
+	/usr/local/hypertable/current
+	/opt/hypertable/current
+	/opt/hypertable/0.9.8.11
+)
 
 # Look for the libraries
 set(HYPER_LIB_PATHS 
