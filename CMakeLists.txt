@@ -109,7 +109,7 @@ find_package(Boost 1.58.0 COMPONENTS date_time filesystem program_options regex 
 
 ########################################################################
 # configurations
-hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" OFF )
+hpx_option(HPXFLOW_BUILD_EXAMPLES BOOL "Build HPX examples (default: OFF)" ON )
 hpx_option(HPXFLOW_BUILD_TESTS BOOL "Build HPX tests (default: OFF)" OFF ADVANCED)
 hpx_option(HPXFLOW_WITH_DOCUMENTATION BOOL "The HPX documentation toolchain is available (default OFF)." OFF)
     
@@ -142,6 +142,9 @@ include_directories(${HYPERTABLE_INCLUDE_DIRS})
 #include_directories(${HYPER_DFS_BROKER})
 
 if(HPXFLOW_BUILD_EXAMPLES)
+    message("Building Example !!!!! ")
+    add_hpx_pseudo_target(examples)
+    include_directories(examples)
     add_subdirectory(examples)
 endif()
 
