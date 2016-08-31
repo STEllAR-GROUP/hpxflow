@@ -142,8 +142,6 @@ include_directories(${HYPERTABLE_INCLUDE_DIRS})
 #include_directories(${HYPER_DFS_BROKER})
 
 if(HPXFLOW_BUILD_EXAMPLES)
-    message("Building Example !!!!! ")
-    add_hpx_pseudo_target(examples)
     include_directories(examples)
     add_subdirectory(examples)
 endif()
