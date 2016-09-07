@@ -26,7 +26,7 @@ parallel programming models), partially based on [Google's DataFlow Model](http:
 
     mkdir build
     cd build
-    cmake -DHPX_ROOT=/path/to/hpx/source/tree -DBOOST_ROOT=/your_boost_directory -DTHRIFT_ROOT=/path/to/thrift ..
+    cmake -DHPX_ROOT=/path/to/hpx/source/tree -DBOOST_ROOT=/your_boost_directory -DMYSQL_ROOT=/your/mysql/path ..
 
 ## Options
 

@@ -37,6 +37,13 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 # Include hpx
 # Instruct cmake to find the HPX settings
 
+# Instructions to include mysql
+if(MYSQL_ROOT)
+    include_directories(${MYSQL_ROOT})
+endif()
+
+################################################################################
+
 # Include Apache Thrift [eg: -DTHRIFT_ROOT=/usr/local/include/thrift]
 if(THRIFT_ROOT)
     include_directories(${THRIFT_ROOT})
