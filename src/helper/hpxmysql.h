@@ -16,21 +16,21 @@
 #pragma comment (lib,"libmysql")
 #pragma comment (lib,"mysqlclient")
 
-namespace hpx {
-    namespace flow { 
-        class hpxmysql{
+// namespace hpx {
+//     namespace flow { 
+//         class hpxmysql{
 
-            void finish_with_error(MYSQL *);
+void finish_with_error(MYSQL *);
 
-            void insert(std::tuple<int, int, int, int, int>, MYSQL *);
+void insert_mysql(std::tuple<int, int, int, int, int>, MYSQL *);
 
-            void delete(MYSQL *);
+void delete_mysql(MYSQL *);
 
-            MYSQL_RES *retrieve_rows(MYSQL *);
-        };
-    }
+MYSQL_RES *retrieve_rows(MYSQL *);
+//         };
+//     }
 
-}
+// }
 
 
 

@@ -10,18 +10,16 @@
 #include <iostream> 
 #include <tuple>
 
+#include <mysql/mysql.h>
 
 namespace hpx {
     namespace flow {
         class mapper{
             public:
-                mapper() {
-                }
-
                 template <typename T>
-                hpxflow &mapperSingle(T fn);
+                mapper &mapperSingle(T fn);
                 template <typename F>
-                hpxflow &mapperSet(F fn);
+                mapper &mapperSet(F fn);
         };
 
     }
