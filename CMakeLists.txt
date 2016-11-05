@@ -51,23 +51,6 @@ endif()
 
 find_package(HPX REQUIRED)
 
-# Include Hypertable
-find_package(HyperTable REQUIRED)
-
-IF (HYPERTABLE_FOUND)
-  MESSAGE(STATUS "HyperTable was found")
-ELSE (SDLGFX_FOUND)
-  MESSAGE(STATUS "HyperTable missing: needed for Spatial tools (MapExplorer, MapTools, etc.).")
-ENDIF (HYPERTABLE_FOUND)
-
-
-set(HYPER_LIB_PATHS 
-    /usr/lib 
-    /usr/local/lib
-    /usr/hypertable/current/lib
-    /usr/local/hypertable/current/lib
-    /opt/hypertable/current/lib
-)
 FIND_LIBRARY(HYPER_DFS_BROKER NAMES HyperDfsBroker PATHS ${HYPER_LIB_PATHS})
 
 if(NOT (HPX_BUILD_TYPE STREQUAL CMAKE_BUILD_TYPE))
@@ -106,8 +89,8 @@ file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )
 
 add_hpx_component(libhpxflow
 		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
-		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s} ${HYPERTABLE_INCLUDE_DIR}
-#    DEPENDENCIES  ${HYPER_LIB_PATHS}
+		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s}
+#    DEPENDENCIES
 		)
 
 # hypertable requires boost iostreams
@@ -145,7 +128,7 @@ if(MSVC)
 endif()
 
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${HYPERTABLE_INCLUDE_DIRS})
+#include_directories(${HYPERTABLE_INCLUDE_DIRS})
 
 if(HPXFLOW_BUILD_EXAMPLES)
     add_subdirectory(examples)
