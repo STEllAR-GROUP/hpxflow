@@ -45,13 +45,13 @@ endif()
 ################################################################################
 
 # Include Apache Thrift [eg: -DTHRIFT_ROOT=/usr/local/include/thrift]
-if(THRIFT_ROOT)
-    include_directories(${THRIFT_ROOT})
-endif()
+#if(THRIFT_ROOT)
+#    include_directories(${THRIFT_ROOT})
+#endif()
 
 find_package(HPX REQUIRED)
 
-FIND_LIBRARY(HYPER_DFS_BROKER NAMES HyperDfsBroker PATHS ${HYPER_LIB_PATHS})
+#FIND_LIBRARY(HYPER_DFS_BROKER NAMES HyperDfsBroker PATHS ${HYPER_LIB_PATHS})
 
 if(NOT (HPX_BUILD_TYPE STREQUAL CMAKE_BUILD_TYPE))
     message("HPX_BUILD_TYPE: " ${HPX_BUILD_TYPE} "CMAKE_BUILD_TYPE: " ${CMAKE_BUILD_TYPE})

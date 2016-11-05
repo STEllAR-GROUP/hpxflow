@@ -22,6 +22,7 @@ int main(){
    // std::function<(int)> x1 = [=](int index) -> int{return a + b;};
 
    std::cout << "Now the Filter Version \n\n\n" << std::endl;
-   mapper().mapperSingle(counte);
+   //Mapper m = Mapper();	   
+   hpx::flow::mapper().mapperSingle(counte);
    return 0;
 }
