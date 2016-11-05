@@ -21,7 +21,7 @@ int main(){
 
    // std::function<(int)> x1 = [=](int index) -> int{return a + b;};
 
-   cout << "Now the Filter Version \n\n\n" << endl;
+   std::cout << "Now the Filter Version \n\n\n" << std::endl;
    mapper().mapperSingle(counte);
    return 0;
 }

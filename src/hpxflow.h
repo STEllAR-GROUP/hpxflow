@@ -10,7 +10,6 @@
 
 #include "../src/core_layer/reduce.h"
 #include "../src/core_layer/mapper.h"
-#include "../src/algorithm/filter.h"
 #include "../src/algorithm/fileoperations.h"
 #include "../src/helper/hpxmysql.h"
 
