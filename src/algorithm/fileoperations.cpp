@@ -36,7 +36,7 @@ hpxflow::hpxflow(std::string filename) {
         buffer += c;
 
     toVector();
-    return *this;
+    // return *this;
 }
 
 /**

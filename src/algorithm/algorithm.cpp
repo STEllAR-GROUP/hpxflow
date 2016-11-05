@@ -112,8 +112,8 @@ bool hpx::flow::Algorithm::lst_equal(const T &first_value, const T &second_value
  * @param second_value
 */
 
-template<typename T>
-T const& hpx::flow::Algorithm::summation(const T &first_value, const T &second_value) {
-    return first_value + second_value;
-}
+// template<typename T>
+// T const& hpx::flow::Algorithm::summation(const T &first_value, const T &second_value) {
+//     return first_value + second_value;
+// }
 

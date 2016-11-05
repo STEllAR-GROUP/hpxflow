@@ -66,4 +66,3 @@ hpx::flow::reduce &hpx::flow::reduce::reduceSet(T fn) {
     obj.fixedWindow();
     return *this;
 }   
-

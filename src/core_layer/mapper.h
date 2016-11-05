@@ -13,23 +13,15 @@
 
 namespace hpx {
     namespace flow {
-        class count { 
-          public: 
-            int operator()(int value ) 
-            { 
-              return value; 
-            } 
-        }; 
+        class mapper{
+            public:
+                mapper() {
+                }
 
-        class word_count_tuple { 
-          public: 
-
-        }; 
-        class hpxflow{
-            template <typename T>
-            hpxflow &mapper(T fn);
-            template <typename F>
-            hpxflow &mapperSet(F fn);
+                template <typename T>
+                hpxflow &mapperSingle(T fn);
+                template <typename F>
+                hpxflow &mapperSet(F fn);
         };
 
     }
@@ -37,5 +29,4 @@ namespace hpx {
 }
 
 #endif
-
 

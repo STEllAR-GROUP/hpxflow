@@ -35,13 +35,13 @@
 */
 
 template <typename T>
-hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
+hpx::flow::mapper &hpx::flow::mapper::mapperSingle(T fn) {
     // std::vector<std::tuple<int, int, int, int>> window_intermediate;
     // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
     using hpx::parallel::for_each;
     using hpx::parallel::par;
-    hpx::flow::window obj();
-    obj.window_intermediate.clear();
+    // hpx::flow::window obj();
+    // obj.window_intermediate.clear();
     for_loop(par, 0, obj.fixed_window.size(), 
         [&](int j) {
             for_loop(par, 0, obj.fixed_window[j].size(), 
@@ -50,7 +50,7 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
             });
     });
 
-    obj.fixedWindow();
+    // obj.fixedWindow();
     return *this;
 }
 
@@ -61,7 +61,7 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::mapper(T fn) {
 */
 
 template <typename T>
-hpx::flow::hpxflow &hpx::flow::hpxflow::mapperSet(T fn) {
+hpx::flow::mapper &hpx::flow::mapper::mapperSet(T fn) {
     // std::vector<std::tuple<int, int, int, int>> window_intermediate;
     // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
     using hpx::parallel::for_each;
@@ -75,4 +75,3 @@ hpx::flow::hpxflow &hpx::flow::hpxflow::mapperSet(T fn) {
     obj.fixedWindow();
     return *this;
 }
-

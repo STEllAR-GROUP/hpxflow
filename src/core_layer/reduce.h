@@ -14,7 +14,8 @@
 namespace hpx {
     namespace flow { 
         class reduce{
-
+            public:
+                reduce() {}
             // std::vector<std::tuple<int, int, int, int>> window_intermediate;
             // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
             template <typename T>
