@@ -37,6 +37,8 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 # Include hpx
 # Instruct cmake to find the HPX settings
 
+find_package(MYSQL)
+
 # Instructions to include mysql
 if(MYSQL_ROOT)
     include_directories(${MYSQL_ROOT})
@@ -72,18 +74,16 @@ file( GLOB_RECURSE sources ./src/algorithm/*.cpp  )
 file( GLOB_RECURSE sources_t  ./src/core_layer/*.cpp  )
 file( GLOB_RECURSE sources_f  ./src/dataflow/*.cpp  )
 file( GLOB_RECURSE sources_s  ./src/pipeline/*.cpp  )
-#file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.cpp )
 
 file( GLOB_RECURSE headers ./src/algorithm/*.hpp  )
 file( GLOB_RECURSE headers_t  ./src/core_layer/*.hpp )
 file( GLOB_RECURSE headers_f  ./src/dataflow/*.hpp  )
 file( GLOB_RECURSE headers_s  ./src/pipeline/*.hpp  )
-#file( GLOB_RECURSE sources ./src/hypertable/hypertableflow.hpp )
 
-add_hpx_component(libhpxflow
-		SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
-		HEADERS ${sources} ${sources_t} ${sources_f} ${sources_s}
-#    DEPENDENCIES
+add_hpx_component(hpxflow
+        SOURCES ${sources} ${sources_t} ${sources_f} ${sources_s}
+		COMPONENT_DEPENDENCIES iostreams
+		DEPENDENCIES ${MYSQL_LIBRARIES}
 		)
 
 find_package(Boost 1.58.0 COMPONENTS date_time filesystem program_options regex serialization system thread REQUIRED)

@@ -1,21 +1,21 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "queue.h"                                                               
-#include <iostream>                                                              
-#include <atomic>                                                                
-#include <thread>                                                                
-#include <vector>  
+#include "queue.h"
+#include <iostream>
+#include <atomic>
+#include <thread>
+#include <vector>
 
 template <typename T>
 
 class Buffer {
-public:
+private:
 
-    Queue<T> q; 
+    Queue<T> q;
     int no_of_threads_consumer;
     int no_of_threads_producer;
- 
+
 public:
     Buffer(int no_consumer, int no_producer)
     {

@@ -1,1 +1,3 @@
-add_hpx_executable(example SOURCES example.cpp COMPONENT_DEPENDENCIES libhpxflow)
+add_hpx_executable(example SOURCES example.cpp
+    COMPONENT_DEPENDENCIES  hpxflow
+    DEPENDENCIES ${MYSQL_LIBRARIES})
