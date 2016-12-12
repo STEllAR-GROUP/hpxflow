@@ -24,6 +24,7 @@
 #include "../dataflow/window.h"
 #include "../helper/buffer.h"
 #include "../helper/hpxmysql.h"
+#include "../config.hpp"
 
 namespace hpx {
     namespace flow {
@@ -51,16 +52,16 @@ hpx::flow::mapper &hpx::flow::mapper::mapperSingle(T fn) {
     MYSQL *conn;
     MYSQL_ROW row;
 
-    char *server = "localhost";
-    char *user = "root";
-    char *password = ""; /* set me first */
-    char *database = "test2";
+    std::string server = SERVER;
+    std::string user = USER;
+    std::string password = PASSWORD; /* set me first */
+    std::string database = DATABASE;
 
     conn = mysql_init(NULL);
 
     std::tuple<int, int, int, int, int> vec_window{1, 2, 3, 4, 5};
 
-    if (!mysql_real_connect(conn, server,user, password, database, 0, NULL, 0)) {
+    if (!mysql_real_connect(conn, server.c_str(),user.c_str(), password.c_str(), database.c_str(), 0, NULL, 0)) {
       fprintf(stderr, "%s\n", mysql_error(conn));
       exit(1);
     }
