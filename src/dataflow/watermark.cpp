@@ -12,13 +12,16 @@
 
 using namespace std;
 
-class watermark{
-	watermark(){
+class watermark
+{
+  watermark ()
+  {
 
-	}
+  }
 
-	~watermark(){
+   ~watermark ()
+  {
 
-	}
+  }
 
 };

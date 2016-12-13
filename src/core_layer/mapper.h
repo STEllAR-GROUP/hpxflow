@@ -26,17 +26,18 @@
 #include "../helper/hpxmysql.h"
 #include "../config.hpp"
 
-namespace hpx {
-    namespace flow {
-        class mapper{
-            public:
-                mapper();
-                ~mapper();
-                template <typename T>
-                mapper &mapperSingle(T fn);
-                template <typename F>
-                mapper &mapperSet(F fn);
-        };
+namespace hpx
+{
+  namespace flow
+  {
+    class mapper
+    {
+    public:
+      mapper ();
+      ~mapper ();
+      template < typename T > mapper & mapperSingle (T fn);
+      template < typename F > mapper & mapperSet (F fn);
+    };
 
 
 /**
@@ -44,51 +45,60 @@ namespace hpx {
  * returns fluent interface onject, used to apply mapper over each tuple<> values
  * @param fn
 */
-        template <typename T>
-hpx::flow::mapper &hpx::flow::mapper::mapperSingle(T fn) {
-    using hpx::parallel::for_each;
-    using hpx::parallel::par;
+      template < typename T >
+      hpx::flow::mapper & hpx::flow::mapper::mapperSingle (T fn)
+    {
+      using hpx::parallel::for_each;
+      using hpx::parallel::par;
 
-    MYSQL *conn;
-    MYSQL_ROW row;
+      MYSQL *conn;
+      MYSQL_ROW row;
 
-    std::string server = SERVER;
-    std::string user = USER;
-    std::string password = PASSWORD; /* set me first */
-    std::string database = DATABASE;
+        std::string server = SERVER;
+        std::string user = USER;
+        std::string password = PASSWORD;	/* set me first */
+        std::string database = DATABASE;
 
-    conn = mysql_init(NULL);
+        conn = mysql_init (NULL);
 
-    std::tuple<int, int, int, int, int> vec_window{1, 2, 3, 4, 5};
+        std::tuple < int, int, int, int, int >vec_window
+      {
+      1, 2, 3, 4, 5};
 
-    if (!mysql_real_connect(conn, server.c_str(),user.c_str(), password.c_str(), database.c_str(), 0, NULL, 0)) {
-      fprintf(stderr, "%s\n", mysql_error(conn));
-      exit(1);
+      if (!mysql_real_connect
+	  (conn, server.c_str (), user.c_str (), password.c_str (),
+	   database.c_str (), 0, NULL, 0))
+	{
+	  fprintf (stderr, "%s\n", mysql_error (conn));
+	  exit (1);
+	}
+
+      int arr[5];
+        std::vector < std::tuple < int, int, int, int, int >>element;
+
+      MYSQL_RES *result = hpx::flow::hpxmysql::retrieve_rows (conn);
+        hpx::flow::hpxmysql::delete_mysql (conn);
+      int num_fields = mysql_num_fields (result);
+
+      while ((row = mysql_fetch_row (result)))
+	{
+	  for (int i = 0; i < num_fields; i++)
+	    {
+	      arr[i] = std::stoi (row[i]) + 100;
+	    }
+	  std::tuple < int, int, int, int, int >inter
+	  {
+	  arr[0], arr[1], arr[2], arr[3], arr[4]};
+	  element.push_back (inter);
+	}
+      ///////////////////////
+
+      for_loop (par, 0, element.size (),[&](int k)
+		{
+		hpx::flow::hpxmysql::insert_mysql (fn (element[k]), conn);});
+
+      return *this;
     }
-
-    int arr[5];
-    std::vector<std::tuple<int, int, int, int, int>> element;
-
-    MYSQL_RES *result = hpx::flow::hpxmysql::retrieve_rows(conn);
-    hpx::flow::hpxmysql::delete_mysql(conn);
-    int num_fields = mysql_num_fields(result);
-
-    while ((row =  mysql_fetch_row(result)))  {
-      for(int i = 0; i < num_fields; i++) {
-          arr[i] = std::stoi(row[i]) + 100;
-      }
-      std::tuple<int, int, int, int, int> inter {arr[0], arr[1], arr[2], arr[3], arr[4]};
-      element.push_back(inter);
-    }
-   ///////////////////////
-
-    for_loop(par, 0, element.size(),
-        [&](int k) {
-         hpx::flow::hpxmysql::insert_mysql(fn(element[k]), conn);
-    });
-
-    return *this;
-}
 
 /**
  * @brief Applies mapper function, for a given lambda expression over vector of tuples.
@@ -96,28 +106,32 @@ hpx::flow::mapper &hpx::flow::mapper::mapperSingle(T fn) {
  * @param fn
 */
 
-template <typename T>
-hpx::flow::mapper &hpx::flow::mapper::mapperSet(T fn) {
-    // std::vector<std::tuple<int, int, int, int>> window_intermediate;
-    // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
-    // using hpx::parallel::for_each;
-    // using hpx::parallel::par;
-    // hpx::flow::window obj();
-    // obj.window_intermediate.clear();
-    // for_loop(par, 0, obj.fixed_window.size(),
-    //     [&](int j) {
-    //         obj.window_intermediate.push_back(fn(obj.fixed_window[j]));
-    // });
-    // obj.fixedWindow();
-    return *this;
-}
+    template < typename T >
+      hpx::flow::mapper & hpx::flow::mapper::mapperSet (T fn)
+    {
+      // std::vector<std::tuple<int, int, int, int>> window_intermediate;
+      // std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
+      // using hpx::parallel::for_each;
+      // using hpx::parallel::par;
+      // hpx::flow::window obj();
+      // obj.window_intermediate.clear();
+      // for_loop(par, 0, obj.fixed_window.size(),
+      //     [&](int j) {
+      //         obj.window_intermediate.push_back(fn(obj.fixed_window[j]));
+      // });
+      // obj.fixedWindow();
+      return *this;
+    }
 
 
 
-hpx::flow::mapper::mapper(void){}
+    hpx::flow::mapper::mapper (void)
+    {
+    }
 
-hpx::flow::mapper::~mapper(void){}
+    hpx::flow::mapper::~mapper (void)
+    {
+    }
 }}
 
 #endif
-

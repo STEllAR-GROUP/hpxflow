@@ -29,14 +29,15 @@
  * @param filename
 */
 
-hpxflow::hpxflow(std::string filename) { 
-    std::ifstream inf(filename);
+hpxflow::hpxflow (std::string filename)
+{
+  std::ifstream inf (filename);
 
-    while (inf.get(c))
-        buffer += c;
+  while (inf.get (c))
+    buffer += c;
 
-    toVector();
-    // return *this;
+  toVector ();
+  // return *this;
 }
 
 /**
@@ -44,11 +45,14 @@ hpxflow::hpxflow(std::string filename) {
  *
 */
 
-void hpxflow::toVector(){
-    std::istringstream iss(buffer);
-    std::string word;
-    while(iss >> word) {
-        veco.push_back(word);
+void
+hpxflow::toVector ()
+{
+  std::istringstream iss (buffer);
+  std::string word;
+  while (iss >> word)
+    {
+      veco.push_back (word);
     }
 }
 
@@ -58,11 +62,12 @@ void hpxflow::toVector(){
  * @param filename
 */
 
-hpxflow &hpxflow::write_to_file(std::string filename){
-    std::ofstream out(filename);
-    out << buffer;
-    out.close();
-    return *this;
+hpxflow & hpxflow::write_to_file (std::string filename)
+{
+  std::ofstream out (filename);
+  out << buffer;
+  out.close ();
+  return *this;
 }
 
 /**
@@ -70,10 +75,13 @@ hpxflow &hpxflow::write_to_file(std::string filename){
  * returns fluent interface onject, used output processed tuple.
 */
 
-hpxflow &hpxflow::dump() {
-    for (std::map<std::string, std::string>::iterator it=inter_map.begin(); it!=inter_map.end(); ++it)
-        std::cout << "First :"<< it->first << " Second: " << it->second << '\n' << "\n";
-    return *this;
+hpxflow & hpxflow::dump ()
+{
+  for (std::map < std::string, std::string >::iterator it =
+       inter_map.begin (); it != inter_map.end (); ++it)
+    std::cout << "First :" << it->first << " Second: " << it->
+      second << '\n' << "\n";
+  return *this;
 }
 
 /**
@@ -84,20 +92,29 @@ hpxflow &hpxflow::dump() {
  * @param args 
 */
 
-template <typename F, typename... Args>
-hpxflow &hpxflow::filter(int index, F fn, Args... args){
-    for(size_t i = 0; i < buffer_pair_intermediate.size(); i++) {
-        if(index == 1){
-            if(!fn(buffer_pair_intermediate[i].first, args...)){
-                buffer_pair_intermediate.erase(buffer_pair_intermediate.begin() + i);
-            }
-        }else if(index == 2){
-            if(!fn(buffer_pair_intermediate[i].second, args...)){
-                buffer_pair_intermediate.erase(buffer_pair_intermediate.begin() + i);
-            }
-        }
+template < typename F, typename ... Args >
+  hpxflow & hpxflow::filter (int index, F fn, Args ... args)
+{
+  for (size_t i = 0; i < buffer_pair_intermediate.size (); i++)
+    {
+      if (index == 1)
+	{
+	  if (!fn (buffer_pair_intermediate[i].first, args ...))
+	    {
+	      buffer_pair_intermediate.erase (buffer_pair_intermediate.
+					      begin () + i);
+	    }
+	}
+      else if (index == 2)
+	{
+	  if (!fn (buffer_pair_intermediate[i].second, args ...))
+	    {
+	      buffer_pair_intermediate.erase (buffer_pair_intermediate.
+					      begin () + i);
+	    }
+	}
     }
-    return *this;
+  return *this;
 }
 
 /**
@@ -107,26 +124,25 @@ hpxflow &hpxflow::filter(int index, F fn, Args... args){
  * @param vl 
 */
 
-template <typename L>
-hpxflow &hpxflow::reducerFile(L fn, int vl){
-    fn(vl, buffer_pair_intermediate, inter_map);
-    return *this;  
+template < typename L > hpxflow & hpxflow::reducerFile (L fn, int vl)
+{
+  fn (vl, buffer_pair_intermediate, inter_map);
+  return *this;
 }
 
 /**
  * @brief Proposed Mapper operation when reading file in parallel 
  * returns fluent interface onject, used to apply paralelization over mapper file read.
  * @param t
-*/ 
+*/
 
-template <typename T>
-hpxflow &hpxflow::mapperFile(T t){
-    for (auto const &value : veco) {
-        buffer_pair.push_back(make_pair(t(value).first, t(value).second));
+template < typename T > hpxflow & hpxflow::mapperFile (T t)
+{
+for (auto const &value:veco)
+    {
+      buffer_pair.push_back (make_pair (t (value).first, t (value).second));
 
     }
-    buffer_pair_intermediate = buffer_pair;
-    return *this;
+  buffer_pair_intermediate = buffer_pair;
+  return *this;
 }
-
-

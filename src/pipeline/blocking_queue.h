@@ -17,29 +17,39 @@
 
 using namespace std;
 
-namespace hpx{
+namespace hpx
+{
 
-    namespace flow{
+  namespace flow
+  {
 
-		template <typename T>
-		class BlockingQueue {
-		private:
-		    mutex mutex_;
-		    queue<T> queue_;
-		public:
-		    bool pop() {}
+    template < typename T > class BlockingQueue
+    {
+    private:
+      mutex mutex_;
+      queue < T > queue_;
+    public:
+      bool pop ()
+      {
+      }
 
-		    void push(T value) {}
+      void push (T value)
+      {
+      }
 
-		    bool empty() {}
-		};
+      bool empty ()
+      {
+      }
+    };
 
-		template<typename T>
-		void fillWorkQueue(BlockingQueue<T>& , T) {}
+    template < typename T > void fillWorkQueue (BlockingQueue < T > &, T)
+    {
+    }
 
-		template<typename T>
-		void doWork(BlockingQueue<T>& ) {}
-	}
-}		
+    template < typename T > void doWork (BlockingQueue < T > &)
+    {
+    }
+  }
+}
 
-#endif 
+#endif

@@ -13,28 +13,35 @@
 #include <vector>
 #include <tuple>
 
-namespace hpx{
-    namespace flow{
+namespace hpx
+{
+  namespace flow
+  {
 
-        class window{
+    class window
+    {
 
-            std::vector<std::tuple<int, int, int, int>> window_intermediate;
-            std::vector<std::vector<std::tuple<int, int, int, int>>> fixed_window;
-            std::vector<int> ifpresent;
+      std::vector < std::tuple < int, int, int, int >>window_intermediate;
+        std::vector < std::vector < std::tuple < int, int, int,
+	int >>>fixed_window;
+        std::vector < int >ifpresent;
 
-            window(std::vector<std::tuple<int, int, int, int>> buffer){
-                window_intermediate = buffer;
-            }
-            ~window(){
-            }
+        window (std::vector < std::tuple < int, int, int, int >>buffer)
+      {
+	window_intermediate = buffer;
+      }
+       ~window ()
+      {
+      }
 
-            void sortBuffer();
+      void sortBuffer ();
 
-            std::vector<std::vector<std::tuple<int, int, int, int>>> fixedWindow();
+        std::vector < std::vector < std::tuple < int, int, int,
+	int >>>fixedWindow ();
 
-            int windowSize();
-        };
-    }
+      int windowSize ();
+    };
+  }
 }
 
 

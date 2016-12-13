@@ -10,19 +10,18 @@
 
 #ifndef HpxFlowPipelineTail_H
 #define HpxFlowPipelineTail_H
-
+  
 #include "HpxFlowPipelineSegmentBaseAdapter.h"
-
-namespace HpxFlowPipelineProcessing
+  namespace HpxFlowPipelineProcessing 
 {
+ class HpxFlowPipelineTail:public HpxFlowPipelineProcessing::
+    HpxFlowPipelineSegmentBaseAdapter 
+  {
+  public:virtual ~ HpxFlowPipelineTail ()
+    {
+    };
+   };
+ }
 
-class HpxFlowPipelineTail : public HpxFlowPipelineProcessing::HpxFlowPipelineSegmentBaseAdapter
-{
-public:
-	virtual ~HpxFlowPipelineTail() {};
-
-};
-
-}
-
-#endif
+ 
+#endif	/*  */

@@ -14,20 +14,27 @@
 
 using namespace std;
 
-namespace hpx{
-	namespace flow{
-		class trigger{
-			trigger(){
-				
-			}
-			~trigger(){
+namespace hpx
+{
+  namespace flow
+  {
+    class trigger
+    {
+      trigger ()
+      {
 
-			}
+      }
+       ~trigger ()
+      {
 
-			template <typename F> //  Here Fn is watermark function
-			bool trigger(F fn) {}
-		};
-	}
+      }
+
+      template < typename F >	//  Here Fn is watermark function
+        bool trigger (F fn)
+      {
+      }
+    };
+  }
 }
 
 #endif

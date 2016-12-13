@@ -24,14 +24,14 @@
 #include <vector>
 #include <string>
 #include <list>
-#include <limits> 
+#include <limits>
 #include <set>
 #include <utility>
 #include <algorithm>
 #include <iterator>
 
 #include "algorithm.h"
- 
+
 /**
  * @brief Wrapper for dynamic function execution.
  * returns fluent interface onject, used just to execute the function
@@ -39,11 +39,12 @@
  *
 */
 
-template <typename T>
-hpx::flow::Algorithm &hpx::flow::Algorithm::dymcFunc(T fn) {
-    fn(buffer);
-    return *this;
-}   
+template < typename T >
+  hpx::flow::Algorithm & hpx::flow::Algorithm::dymcFunc (T fn)
+{
+  fn (buffer);
+  return *this;
+}
 
 /**
  * @brief Comparator operator between two data types
@@ -52,9 +53,11 @@ hpx::flow::Algorithm &hpx::flow::Algorithm::dymcFunc(T fn) {
  * @param second_value
 */
 
-template<typename T>
-bool hpx::flow::Algorithm::equal(const T &first_value, const T &second_value) {
-    return first_value == second_value;
+template < typename T >
+  bool hpx::flow::Algorithm::equal (const T & first_value,
+				    const T & second_value)
+{
+  return first_value == second_value;
 }
 
 /**
@@ -64,9 +67,11 @@ bool hpx::flow::Algorithm::equal(const T &first_value, const T &second_value) {
  * @param second_value
 */
 
-template<typename T>
-bool hpx::flow::Algorithm::grt(const T &first_value, const T &second_value) {
-    return first_value > second_value;
+template < typename T >
+  bool hpx::flow::Algorithm::grt (const T & first_value,
+				  const T & second_value)
+{
+  return first_value > second_value;
 }
 
 /**
@@ -76,9 +81,11 @@ bool hpx::flow::Algorithm::grt(const T &first_value, const T &second_value) {
  * @param second_value
 */
 
-template<typename T>
-bool hpx::flow::Algorithm::lst(const T &first_value, const T &second_value) {
-    return first_value < second_value;
+template < typename T >
+  bool hpx::flow::Algorithm::lst (const T & first_value,
+				  const T & second_value)
+{
+  return first_value < second_value;
 }
 
 /**
@@ -88,9 +95,11 @@ bool hpx::flow::Algorithm::lst(const T &first_value, const T &second_value) {
  * @param second_value
 */
 
-template<typename T>
-bool hpx::flow::Algorithm::grt_equal(const T &first_value, const T &second_value) {
-    return first_value >= second_value;
+template < typename T >
+  bool hpx::flow::Algorithm::grt_equal (const T & first_value,
+					const T & second_value)
+{
+  return first_value >= second_value;
 }
 
 /**
@@ -100,9 +109,11 @@ bool hpx::flow::Algorithm::grt_equal(const T &first_value, const T &second_value
  * @param second_value
 */
 
-template<typename T>
-bool hpx::flow::Algorithm::lst_equal(const T &first_value, const T &second_value) {
-    return first_value <= second_value;
+template < typename T >
+  bool hpx::flow::Algorithm::lst_equal (const T & first_value,
+					const T & second_value)
+{
+  return first_value <= second_value;
 }
 
 /**
@@ -116,4 +127,3 @@ bool hpx::flow::Algorithm::lst_equal(const T &first_value, const T &second_value
 // T const& hpx::flow::Algorithm::summation(const T &first_value, const T &second_value) {
 //     return first_value + second_value;
 // }
-
