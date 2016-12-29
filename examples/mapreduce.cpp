@@ -21,9 +21,7 @@ counte (std::tuple < int, int, int, int, int >element)
   return intermediate;
 }
 
-int
-main ()
-{
+int main () {
   // hpxflow("text.txt").character_operation(' ', '\n').write_to_file("output.txt");
   // hpxflow("text.txt").operate([](string x){ return std::make_pair (x, "1");}).dump();
 

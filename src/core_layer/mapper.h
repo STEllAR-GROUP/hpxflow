@@ -93,9 +93,14 @@ namespace hpx
 	}
       ///////////////////////
 
-      for_loop (par, 0, element.size (),[&](int k)
-		{
-		hpx::flow::hpxmysql::insert_mysql (fn (element[k]), conn);});
+  //     for_loop (par, 0, element.size (),[&](int k)
+		// {
+		// hpx::flow::hpxmysql::insert_mysql (fn (element[k]), conn);
+  //   });
+
+    for(int i = 0; i < element.size (); i++) {
+      hpx::flow::hpxmysql::insert_mysql (fn (element[i]), conn);
+    }  
 
       return *this;
     }
