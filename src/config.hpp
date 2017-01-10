@@ -7,7 +7,7 @@
 
 #define BUFFER_SIZE 1024
 
-#define SERVER "localhost"
-#define USER "testuser"
-#define PASSWORD "Oopho8Ee"
+#define SERVER ""
+#define USER ""
+#define PASSWORD ""
 #define DATABASE "test"
