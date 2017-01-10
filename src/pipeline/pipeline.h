@@ -21,44 +21,44 @@
 
 // namespace hpx{
 
-// 	namespace flow{
+//      namespace flow{
 
-// 			class pipeline{
-// 				hpx::flow::BlockingQueue in;
-// 				hpx::flow::BlockingQueue out;
-// 				hpx::flow::CountDownLatch
+//                      class pipeline{
+//                              hpx::flow::BlockingQueue in;
+//                              hpx::flow::BlockingQueue out;
+//                              hpx::flow::CountDownLatch
 
-// 				bool done;
-				
-// 				public:
-					
-// 					virtual void initializeStep() = 0;
-					
-// 					virtual void intermediateStep() = 0;
-// 					// 
-// 					virtual void terminateStep() = 0;
+//                              bool done;
 
-// 					void run(){}
-// 			};
+//                              public:
 
-// 			class linearPipeline{
-// 				std::vector<pipeline> stages;
-// 				std::vector<BlockingQueue> queues;
+//                                      virtual void initializeStep() = 0;
 
-// 				int numstages;
+//                                      virtual void intermediateStep() = 0;
+//                                      // 
+//                                      virtual void terminateStep() = 0;
 
-// 				CountDownLatch s;
+//                                      void run(){}
+//                      };
 
-// 				virtual vector<pipeline> getPipelineStages(vector<string> args) = 0;
+//                      class linearPipeline{
+//                              std::vector<pipeline> stages;
+//                              std::vector<BlockingQueue> queues;
 
-// 				virtual vector<BlockingQueue> getQueues(vector<string> args) = 0;
+//                              int numstages;
 
-// 				linearPipeline(vector<string> args) {}
-// 			   	void start(){ 
-// 			   		// Need to work on this
-// 			   	}
-// 			};
-// 	}
+//                              CountDownLatch s;
+
+//                              virtual vector<pipeline> getPipelineStages(vector<string> args) = 0;
+
+//                              virtual vector<BlockingQueue> getQueues(vector<string> args) = 0;
+
+//                              linearPipeline(vector<string> args) {}
+//                              void start(){ 
+//                                      // Need to work on this
+//                              }
+//                      };
+//      }
 // }
 
 // #endif

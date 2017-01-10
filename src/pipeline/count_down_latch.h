@@ -15,70 +15,103 @@
 #include <boost/chrono.hpp>
 #include <iostream>
 
-namespace hpx{
+namespace hpx
+{
 
-    namespace flow{
+  namespace flow
+  {
 
-        template< class TypeVal >
-            class AtomicCounter
-            {
-            public:
-                AtomicCounter( TypeVal val ) : m_typeVal( val ) 
-                {
-                }
+    template < class TypeVal > class AtomicCounter
+    {
+    public:
+    AtomicCounter (TypeVal val):m_typeVal (val)
+      {
+      }
 
-                AtomicCounter() : m_typeVal(0)
-                {
-                }
+      AtomicCounter ():m_typeVal (0)
+      {
+      }
 
-                AtomicCounter(const AtomicCounter& cpy) : m_typeVal(cpy.m_typeVal){}
+      AtomicCounter (const AtomicCounter & cpy):m_typeVal (cpy.m_typeVal)
+      {
+      }
 
-                const AtomicCounter& operator=(const AtomicCounter& other){}
+      const AtomicCounter & operator= (const AtomicCounter & other)
+      {
+      }
 
-                virtual ~AtomicCounter(){}
+      virtual ~ AtomicCounter ()
+      {
+      }
 
-                const TypeVal& getCount() const{}
+      const TypeVal & getCount () const
+      {
+      }
 
-                const TypeVal& setCount( const TypeVal &val ) {}
+      const TypeVal & setCount (const TypeVal & val)
+      {
+      }
 
-                const TypeVal& increment() {}
+      const TypeVal & increment ()
+      {
+      }
 
-                const TypeVal& decrement() {}
+      const TypeVal & decrement ()
+      {
+      }
 
-                const TypeVal& increment(const TypeVal& t) {}
+      const TypeVal & increment (const TypeVal & t)
+      {
+      }
 
-                const TypeVal& decrement(const TypeVal& t) {}
-
-
-            private:
-                mutable boost::mutex m_atomicMutex;
-                TypeVal m_typeVal;
-            };
-
-                   class CountDownLatch
-            {
-            public:
-                CountDownLatch( int count ): m_cdlCount( count ) 
-                {
-                }
-
-                CountDownLatch(const CountDownLatch& cpy){}
-
-                const CountDownLatch& operator=(const CountDownLatch& other){}
-
-                virtual ~CountDownLatch() {}
-                void wait() {}
-                void wait( uint64_t timeoutMicros ) {}
-                void countDown() {}
-
-                int getCount(){}
+      const TypeVal & decrement (const TypeVal & t)
+      {
+      }
 
 
-            private:
-                boost::mutex m_cdlMutex;
-                boost::condition_variable m_cdlCondition;
-                AtomicCounter< int >  m_cdlCount;           
-            };
-    }
+    private:
+      mutable boost::mutex m_atomicMutex;
+      TypeVal m_typeVal;
+    };
+
+    class CountDownLatch
+    {
+    public:
+      CountDownLatch (int count):m_cdlCount (count)
+      {
+      }
+
+      CountDownLatch (const CountDownLatch & cpy)
+      {
+      }
+
+      const CountDownLatch & operator= (const CountDownLatch & other)
+      {
+      }
+
+      virtual ~ CountDownLatch ()
+      {
+      }
+      void wait ()
+      {
+      }
+      void wait (uint64_t timeoutMicros)
+      {
+      }
+      void countDown ()
+      {
+      }
+
+      int getCount ()
+      {
+      }
+
+
+    private:
+      boost::mutex m_cdlMutex;
+      boost::condition_variable m_cdlCondition;
+      AtomicCounter < int >m_cdlCount;
+    };
+  }
 }
 #endif

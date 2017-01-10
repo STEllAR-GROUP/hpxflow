@@ -7,26 +7,33 @@
 
 #ifndef HPXFLOWPIPELINESEGMENTBASEADAPTER_H
 #define HPXFLOWPIPELINESEGMENTBASEADAPTER_H
-
+  
 #include "HpxFlowPipelineSegmentBase.h"
-
-namespace HpxFlowPipelineProcessing
+  namespace HpxFlowPipelineProcessing 
 {
+ class HpxFlowPipelineSegmentBaseAdapter:public HpxFlowPipelineProcessing::
+    HpxFlowPipelineSegmentBase 
+  {
+  protected:HpxFlowPipelineSegmentBaseAdapter ()
+    {
+    };
+     virtual bool addOutputHandler (HpxFlowPipelineSegmentBase * output)
+    {
+      return true;
+    };
+    virtual bool removeOutputHandler (HpxFlowPipelineSegmentBase * output)
+    {
+      return true;
+    };
+    virtual bool removeAllOutputHandlers ()
+    {
+      return true;
+    };
+   public: virtual ~ HpxFlowPipelineSegmentBaseAdapter ()
+    {
+    };
+  };
+ }
 
-class HpxFlowPipelineSegmentBaseAdapter : public HpxFlowPipelineProcessing::HpxFlowPipelineSegmentBase
-{
-protected:
-	HpxFlowPipelineSegmentBaseAdapter() {};
-
-	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output) { return true; };
-	virtual bool removeOutputHandler(HpxFlowPipelineSegmentBase *output) { return true; };
-	virtual bool removeAllOutputHandlers() { return true; };
-
-public:
-
-	virtual ~HpxFlowPipelineSegmentBaseAdapter() {};
-};
-
-}
-
-#endif
+ 
+#endif	/*  */

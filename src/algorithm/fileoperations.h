@@ -19,40 +19,39 @@
 
 //using namespace std;
 
-class hpxflow{
+class hpxflow
+{
 
-    public:
-    
-			std::string buffer, inter_buffer;
-        char c;
+public:
 
-		std::vector<std::string> veco;
+  std::string buffer, inter_buffer;
+  char c;
 
-		std::vector<std::pair<std::string,std:: string>> buffer_pair;
-		std::vector<std::pair<std::string, std::string>> buffer_pair_intermediate;
+    std::vector < std::string > veco;
 
-		std::map<std::string, std::string> inter_map;
+    std::vector < std::pair < std::string, std::string >> buffer_pair;
+    std::vector < std::pair < std::string,
+    std::string >> buffer_pair_intermediate;
 
-        hpxflow(std::string filename);
+    std::map < std::string, std::string > inter_map;
 
-        void toVector();
+    hpxflow (std::string filename);
 
-        hpxflow &character_operation(char character, char replace_with);
+  void toVector ();
 
-        hpxflow &write_to_file(std::string filename);
+    hpxflow & character_operation (char character, char replace_with);
 
-        hpxflow &dump() ;
+    hpxflow & write_to_file (std::string filename);
 
-        template <typename F, typename... Args>
-        hpxflow &filter(int index, F fn, Args... args);
+    hpxflow & dump ();
 
-        template <typename L>
-        hpxflow &reducerFile(L fn, int vl);
+    template < typename F, typename ... Args >
+    hpxflow & filter (int index, F fn, Args ... args);
 
-        template <typename T>
-        hpxflow &mapperFile(T t);
+    template < typename L > hpxflow & reducerFile (L fn, int vl);
+
+    template < typename T > hpxflow & mapperFile (T t);
 
 };
 
 #endif
-

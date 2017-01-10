@@ -11,22 +11,20 @@
 #ifndef HPXFLOWPIPELINESEGMENTBASE
 #define IPIPESEGMENTBASE_H
 #define HPXFLOWPIPELINESEGMENTBASE
-
-namespace HpxFlowPipelineProcessing
+  namespace HpxFlowPipelineProcessing 
 {
+   class HpxFlowPipelineSegmentBase 
+  {
+  protected:virtual bool addOutputHandler (HpxFlowPipelineSegmentBase * output) =
+      0;
+    virtual bool removeOutputHandler (HpxFlowPipelineSegmentBase * output) =
+      0;
+    virtual bool removeAllOutputHandlers () = 0;
+   public: virtual ~ HpxFlowPipelineSegmentBase ()
+    {
+    };
+  };
+ }
 
-class HpxFlowPipelineSegmentBase
-{
-protected:
-	virtual bool addOutputHandler(HpxFlowPipelineSegmentBase *output)=0;
-	virtual bool removeOutputHandler(HpxFlowPipelineSegmentBase *output)=0;
-	virtual bool removeAllOutputHandlers()=0;
-
-public:
-
-	virtual ~HpxFlowPipelineSegmentBase() {};
-};
-
-}
-
-#endif
+ 
+#endif	/*  */

@@ -30,5 +30,5 @@ parallel programming models), partially based on [Google's DataFlow Model](http:
 
 ## Options
 
-* Build examples:  ```-DHPXFLOW_BUILD_EXAMPLE (Default=OFF)```
+* Build examples:  ```-DHPXFLOW_BUILD_EXAMPLE (Default=ON)```
 

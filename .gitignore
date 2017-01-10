@@ -39,7 +39,7 @@ Thumbs.db
 
 # Build folder
 ######################
-./build
+/build
 
 # Documentation
 ######################

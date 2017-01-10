@@ -14,18 +14,23 @@
 
 using namespace std;
 
-namespace hpx{
-	namespace flow{
-		class watermark{
-			watermark(){
-				
-			}
-			~watermark(){
+namespace hpx
+{
+  namespace flow
+  {
+    class watermark
+    {
+      watermark ()
+      {
 
-			}
+      }
+       ~watermark ()
+      {
 
-		};
-	}
+      }
+
+    };
+  }
 }
 
 #endif

@@ -17,74 +17,74 @@
 
 // namespace hpx{
 
-// 	namespace flow{
+//      namespace flow{
 
-// 			class pipeline{
-// 				// hpx::flow::BlockingQueue in;
-// 				// hpx::flow::BlockingQueue out;
-// 				hpx::flow::CountDownLatch
+//                      class pipeline{
+//                              // hpx::flow::BlockingQueue in;
+//                              // hpx::flow::BlockingQueue out;
+//                              hpx::flow::CountDownLatch
 
-// 				bool done;
-				
-// 				public:
-					
-// 					virtual void initializeStep() = 0;
-					
-// 					virtual void intermediateStep() = 0;
-					
-// 					virtual void terminateStep() = 0;
+//                              bool done;
 
-// 					void run(){
-// 					   try{ 
+//                              public:
 
-// 					   	initializeStep();
-					   
-// 					   	while(!done) { 
-					   	
-// 					   		intermediateStep();
-					   
-// 					   	}
-// 					   	terminateStep();
-					   
-// 						} catch(exception e) {
-// 							cout << "Exception: " << e << endl;
-// 						}
-// 					}
-// 			};
+//                                      virtual void initializeStep() = 0;
 
-// 			class linearPipeline{
-// 				std::vector<pipeline> stages;
-// 				std::vector<BlockingQueue> queues;
+//                                      virtual void intermediateStep() = 0;
 
-// 				int numstages;
+//                                      virtual void terminateStep() = 0;
 
-// 				CountDownLatch s;
+//                                      void run(){
+//                                         try{ 
 
-// 				virtual vector<pipeline> getPipelineStages(vector<string> args) = 0;
+//                                              initializeStep();
 
-// 				virtual vector<BlockingQueue> getQueues(vector<string> args) = 0;
+//                                              while(!done) { 
 
-// 				linearPipeline(vector<string> args) {
-// 					stages = getPipelineStages(args);
-// 					queues = getQueues(args);
-// 				   	numstages = stages.size();
-// 				   	CountDownLatch s(numstages);
+//                                                      intermediateStep();
 
-// 				   	BlockingQueue in = 0;
-// 					BlockingQueue out = queues[0];
+//                                              }
+//                                              terminateStep();
 
-// 					for (int i = 0; i != numstages; i++) { 
+//                                              } catch(exception e) {
+//                                                      cout << "Exception: " << e << endl;
+//                                              }
+//                                      }
+//                      };
 
-// 						in = out;
-// 						if (i < numstages-2) 
-// 							out = queues[i+1]; 
-// 						else 
-// 							out = 0;
-// 			   		}
-// 			   	}
-// 			   	void start(){ 
-// 			   		// Need to work on this
-// 			   	}
-// 			};
-// 	}
+//                      class linearPipeline{
+//                              std::vector<pipeline> stages;
+//                              std::vector<BlockingQueue> queues;
+
+//                              int numstages;
+
+//                              CountDownLatch s;
+
+//                              virtual vector<pipeline> getPipelineStages(vector<string> args) = 0;
+
+//                              virtual vector<BlockingQueue> getQueues(vector<string> args) = 0;
+
+//                              linearPipeline(vector<string> args) {
+//                                      stages = getPipelineStages(args);
+//                                      queues = getQueues(args);
+//                                      numstages = stages.size();
+//                                      CountDownLatch s(numstages);
+
+//                                      BlockingQueue in = 0;
+//                                      BlockingQueue out = queues[0];
+
+//                                      for (int i = 0; i != numstages; i++) { 
+
+//                                              in = out;
+//                                              if (i < numstages-2) 
+//                                                      out = queues[i+1]; 
+//                                              else 
+//                                                      out = 0;
+//                                      }
+//                              }
+//                              void start(){ 
+//                                      // Need to work on this
+//                              }
+//                      };
+//      }
 // }

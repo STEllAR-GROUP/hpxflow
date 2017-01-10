@@ -6,3 +6,8 @@
 // Config.hpp is used to define user defined configuration variable's
 
 #define BUFFER_SIZE 1024
+
+#define SERVER ""
+#define USER ""
+#define PASSWORD ""
+#define DATABASE "test"

@@ -21,7 +21,7 @@
 #include <vector>
 #include <string>
 #include <list>
-#include <limits> 
+#include <limits>
 #include <set>
 #include <utility>
 #include <algorithm>
@@ -29,56 +29,50 @@
 
 namespace hpx
 {
-    namespace flow{
+  namespace flow
+  {
 
 
-        class Algorithm{
+    class Algorithm
+    {
 
-        public:
-            std::string strm_;
-            std::string buffer;
-            std::string data;
-        public:
-            Algorithm(std::string strm) {
-                std::ifstream infile; 
-                infile.open(strm);
-                std::getline(infile, strm_);
-            }
+    public:
+      std::string strm_;
+      std::string buffer;
+      std::string data;
+    public:
+      Algorithm (std::string strm)
+      {
+	std::ifstream infile;
+	infile.open (strm);
+	std::getline (infile, strm_);
+      }
 
-            template <typename T>
-            Algorithm &dymcFunc(T);
+      template < typename T > Algorithm & dymcFunc (T);
 
-            template<typename T>
-            bool equal(const T &, const T &);
+        template < typename T > bool equal (const T &, const T &);
 
-            // Checks for the greater value, for ex: s > c
-            template<typename T>
-            bool grt(const T &, const T &);
+      // Checks for the greater value, for ex: s > c
+        template < typename T > bool grt (const T &, const T &);
 
-            // Checks for the greater value, for ex: s < c
-            template<typename T>
-            bool lst(const T &, const T &);
+      // Checks for the greater value, for ex: s < c
+        template < typename T > bool lst (const T &, const T &);
 
-            // Checks for the greater value, for ex: s >= c
-            template<typename T>
-            bool grt_equal(const T &, const T &);
+      // Checks for the greater value, for ex: s >= c
+        template < typename T > bool grt_equal (const T &, const T &);
 
-            // Checks for the greater value, for ex: s =< c
-            template<typename T>
-            bool lst_equal(const T &, const T &);
+      // Checks for the greater value, for ex: s =< c
+        template < typename T > bool lst_equal (const T &, const T &);
 
-            // Summation of two values
-            template<typename T>
-            T const& summation(T &, T &);
+      // Summation of two values
+        template < typename T > T const &summation (T &, T &);
 
-        };
+    };
 
-        
-        
-    }
+
+
+  }
 }
 
 
 #endif
-
-
