@@ -70,7 +70,7 @@ namespace hpx
 
       MYSQL_RES *result = hpx::flow::hpxmysql::retrieve_rows (conn);
 
-      hpx::flow::hpxmysql::delete_mysql (conn);
+//       hpx::flow::hpxmysql::delete_mysql (conn);
 
       int num_fields = mysql_num_fields (result);
 
