@@ -60,13 +60,10 @@ namespace hpx
       {
       1, 2, 3, 4, 5};
 
-      if (!mysql_real_connect
-	  (conn, server.c_str (), user.c_str (), password.c_str (),
-	   database.c_str (), 0, NULL, 0))
-	{
-	  fprintf (stderr, "%s\n", mysql_error (conn));
-	  exit (1);
-	}
+      if (!mysql_real_connect(conn, server.c_str (), user.c_str (), password.c_str (),database.c_str (), 0, NULL, 0)) {
+    	  fprintf (stderr, "%s\n", mysql_error (conn));
+    	  exit (1);
+    	}
 
       int arr[5];
       std::vector < std::tuple < int, int, int, int, int >>element;
@@ -77,22 +74,17 @@ namespace hpx
 
       int num_fields = mysql_num_fields (result);
 
-      while ((row = mysql_fetch_row (result)))
-	{
-	  for (int i = 0; i < num_fields; i++)
-	    {
-	      arr[i] = std::stoi (row[i]) + 100;
-	    }
-	  std::tuple < int, int, int, int, int >inter
-	  {
-	  arr[0], arr[1], arr[2], arr[3], arr[4]};
-	  element.push_back (inter);
-	}
-      ///////////////////////
+      while ((row = mysql_fetch_row (result))) {
+    	  for (int i = 0; i < num_fields; i++) {
+    	      arr[i] = std::stoi (row[i]);
+    	  }
+    	  std::tuple < int, int, int, int, int >inter { arr[0], arr[1], arr[2], arr[3], arr[4] };
+    	  element.push_back (inter);
+    	}
 
-      for_loop (par, 0, element.size (),[&](int k)
-		{
-		hpx::flow::hpxmysql::insert_mysql (fn (element[k]), conn);});
+      for_loop (par, 0, element.size (),[&](int k) {
+		    hpx::flow::hpxmysql::insert_mysql (fn (element[k]), conn);
+      });
 
       return *this;
     }

@@ -10,4 +10,4 @@
 #define SERVER ""
 #define USER ""
 #define PASSWORD ""
-#define DATABASE "test"
+#define DATABASE ""
