@@ -84,7 +84,7 @@ namespace hpx
 	{
 	  for (int i = 0; i < num_fields; i++)
 	    {
-	      arr[i] = std::stoi (row[i]) + 100;
+	      arr[i] = std::stoi (row[i]);
 	    }
 	  std::tuple < int, int, int, int, int >inter
 	  {
